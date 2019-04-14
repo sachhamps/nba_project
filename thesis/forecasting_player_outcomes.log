@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2019.3.16)  13 APR 2019 14:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2019.3.16)  14 APR 2019 14:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -601,37 +601,37 @@ LaTeX Warning: Label `sub@fig:2' multiply defined.
 LaTeX Warning: Label `fig:3' multiply defined.
 
 
-LaTeX Warning: Label `fig:1' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:1' multiply defined.
-
-
-LaTeX Warning: Label `fig:2' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:2' multiply defined.
-
-
-LaTeX Warning: Label `fig:3' multiply defined.
-
-
-LaTeX Warning: Label `fig:1' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:1' multiply defined.
-
-
-LaTeX Warning: Label `fig:2' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:2' multiply defined.
-
-
-LaTeX Warning: Label `fig:3' multiply defined.
-
-
 LaTeX Warning: Label `fig:my-label' multiply defined.
+
+
+LaTeX Warning: Label `fig:1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:1' multiply defined.
+
+
+LaTeX Warning: Label `fig:2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:2' multiply defined.
+
+
+LaTeX Warning: Label `fig:3' multiply defined.
+
+
+LaTeX Warning: Label `fig:1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:1' multiply defined.
+
+
+LaTeX Warning: Label `fig:2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:2' multiply defined.
+
+
+LaTeX Warning: Label `fig:3' multiply defined.
 
 )
 \openout1 = `forecasting_player_outcomes.aux'.
@@ -810,28 +810,120 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[5] <pairplot1.png, id=23, 422.57875pt x 361.35pt>
+[5]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[6]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[7] <scatterplt_ex.png, id=35, 433.62pt x 289.08pt>
+File: scatterplt_ex.png Graphic file (type png)
+ <use scatterplt_ex.png>
+Package pdftex.def Info: scatterplt_ex.png used on input line 253.
+(pdftex.def)             Requested size: 169.62154pt x 113.08038pt.
+
+<linregscatterplt.png, id=37, 433.62pt x 289.08pt>
+File: linregscatterplt.png Graphic file (type png)
+ <use linregscatterplt.png>
+Package pdftex.def Info: linregscatterplt.png used on input line 259.
+(pdftex.def)             Requested size: 169.62154pt x 113.08038pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[8 <./scatterplt_ex.png> <./linregscatterplt.png>]
+File: scatterplt_ex.png Graphic file (type png)
+ <use scatterplt_ex.png>
+Package pdftex.def Info: scatterplt_ex.png used on input line 293.
+(pdftex.def)             Requested size: 169.62154pt x 113.08038pt.
+File: linregscatterplt.png Graphic file (type png)
+
+<use linregscatterplt.png>
+Package pdftex.def Info: linregscatterplt.png used on input line 299.
+(pdftex.def)             Requested size: 169.62154pt x 113.08038pt.
+ <kerneltrick.png, id=43, 854.19125pt x 363.3575pt>
+File: kerneltrick.png Graphic file (type png)
+
+<use kerneltrick.png>
+Package pdftex.def Info: kerneltrick.png used on input line 311.
+(pdftex.def)             Requested size: 212.03017pt x 90.19044pt.
+ <wavey.png, id=44, 433.62pt x 289.08pt>
+File: wavey.png Graphic file (type png)
+ <use wavey.png>
+Package pdftex.def Info: wavey.png used on input line 319.
+(pdftex.def)             Requested size: 135.70241pt x 90.4696pt.
+
+<wavey_lr.png, id=45, 433.62pt x 289.08pt>
+File: wavey_lr.png Graphic file (type png)
+ <use wavey_lr.png>
+Package pdftex.def Info: wavey_lr.png used on input line 324.
+(pdftex.def)             Requested size: 135.70241pt x 90.4696pt.
+
+<wavey_kr.png, id=46, 433.62pt x 289.08pt>
+File: wavey_kr.png Graphic file (type png)
+ <use wavey_kr.png>
+Package pdftex.def Info: wavey_kr.png used on input line 329.
+(pdftex.def)             Requested size: 135.70241pt x 90.4696pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[9]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[10 <./kerneltrick.png> <./wavey.png> <./wavey_lr.png> <./wavey_kr.png>]
+<overfitpng.png, id=57, 989.6975pt x 706.64pt>
+File: overfitpng.png Graphic file (type png)
+ <use overfitpng.png>
+Package pdftex.def Info: overfitpng.png used on input line 363.
+(pdftex.def)             Requested size: 212.03017pt x 151.38551pt.
+
+<pairplot1.png, id=58, 422.57875pt x 361.35pt>
 File: pairplot1.png Graphic file (type png)
  <use pairplot1.png>
-Package pdftex.def Info: pairplot1.png used on input line 200.
+Package pdftex.def Info: pairplot1.png used on input line 387.
 (pdftex.def)             Requested size: 169.62154pt x 145.0447pt.
 
-<pairplot2.png, id=25, 422.57875pt x 361.35pt>
+<pairplot2.png, id=59, 422.57875pt x 361.35pt>
 File: pairplot2.png Graphic file (type png)
  <use pairplot2.png>
-Package pdftex.def Info: pairplot2.png used on input line 206.
+Package pdftex.def Info: pairplot2.png used on input line 393.
 (pdftex.def)             Requested size: 169.62154pt x 145.0447pt.
 
-<pairplot3.png, id=26, 422.57875pt x 361.35pt>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<pairplot3.png, id=60, 422.57875pt x 361.35pt>
 File: pairplot3.png Graphic file (type png)
  <use pairplot3.png>
-Package pdftex.def Info: pairplot3.png used on input line 217.
+Package pdftex.def Info: pairplot3.png used on input line 404.
 (pdftex.def)             Requested size: 169.62154pt x 145.0447pt.
 
-<pairplot4.png, id=27, 422.57875pt x 361.35pt>
+<pairplot4.png, id=61, 422.57875pt x 361.35pt>
 File: pairplot4.png Graphic file (type png)
  <use pairplot4.png>
-Package pdftex.def Info: pairplot4.png used on input line 223.
+Package pdftex.def Info: pairplot4.png used on input line 410.
 (pdftex.def)             Requested size: 169.62154pt x 145.0447pt.
 
 
@@ -843,99 +935,15 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[6 <./pairplot1.png> <./pairplot2.png>]
-<overfitpng.png, id=33, 989.6975pt x 706.64pt>
-File: overfitpng.png Graphic file (type png)
- <use overfitpng.png>
-Package pdftex.def Info: overfitpng.png used on input line 236.
-(pdftex.def)             Requested size: 212.03017pt x 151.38551pt.
-
+[11 <./overfitpng.png>]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[7 <./pairplot3.png> <./pairplot4.png> <./overfitpng.png>]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 13.59999pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[8] <scatterplt_ex.png, id=49, 433.62pt x 289.08pt>
-File: scatterplt_ex.png Graphic file (type png)
- <use scatterplt_ex.png>
-Package pdftex.def Info: scatterplt_ex.png used on input line 308.
-(pdftex.def)             Requested size: 169.62154pt x 113.08038pt.
-
-<linregscatterplt.png, id=50, 433.62pt x 289.08pt>
-File: linregscatterplt.png Graphic file (type png)
- <use linregscatterplt.png>
-Package pdftex.def Info: linregscatterplt.png used on input line 314.
-(pdftex.def)             Requested size: 169.62154pt x 113.08038pt.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 13.59999pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[9 <./scatterplt_ex.png> <./linregscatterplt.png>]
-File: scatterplt_ex.png Graphic file (type png)
- <use scatterplt_ex.png>
-Package pdftex.def Info: scatterplt_ex.png used on input line 348.
-(pdftex.def)             Requested size: 169.62154pt x 113.08038pt.
-File: linregscatterplt.png Graphic file (type png)
-
-<use linregscatterplt.png>
-Package pdftex.def Info: linregscatterplt.png used on input line 354.
-(pdftex.def)             Requested size: 169.62154pt x 113.08038pt.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 13.59999pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[10] <kerneltrick.png, id=59, 854.19125pt x 363.3575pt>
-File: kerneltrick.png Graphic file (type png)
- <use kerneltrick.png>
-Package pdftex.def Info: kerneltrick.png used on input line 366.
-(pdftex.def)             Requested size: 212.03017pt x 90.19044pt.
-
-<wavey.png, id=60, 433.62pt x 289.08pt>
-File: wavey.png Graphic file (type png)
- <use wavey.png>
-Package pdftex.def Info: wavey.png used on input line 374.
-(pdftex.def)             Requested size: 135.70241pt x 90.4696pt.
-
-<wavey_lr.png, id=61, 433.62pt x 289.08pt>
-File: wavey_lr.png Graphic file (type png)
- <use wavey_lr.png>
-Package pdftex.def Info: wavey_lr.png used on input line 379.
-(pdftex.def)             Requested size: 135.70241pt x 90.4696pt.
-
-<wavey_kr.png, id=62, 433.62pt x 289.08pt>
-File: wavey_kr.png Graphic file (type png)
- <use wavey_kr.png>
-Package pdftex.def Info: wavey_kr.png used on input line 384.
-(pdftex.def)             Requested size: 135.70241pt x 90.4696pt.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 13.59999pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[11 <./kerneltrick.png> <./wavey.png> <./wavey_lr.png> <./wavey_kr.png>]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 13.59999pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[12] (./forecasting_player_outcomes.aux)
+[12 <./pairplot1.png> <./pairplot2.png> <./pairplot3.png> <./pairplot4.png>]
+(./forecasting_player_outcomes.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -958,7 +966,7 @@ local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/loc
 al/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/loca
 l/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local
 /texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on forecasting_player_outcomes.pdf (12 pages, 275481 bytes).
+Output written on forecasting_player_outcomes.pdf (12 pages, 276055 bytes).
 PDF statistics:
  106 PDF objects out of 1000 (max. 8388607)
  59 compressed objects within 1 object stream

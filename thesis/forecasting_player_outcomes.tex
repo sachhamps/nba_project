@@ -117,7 +117,7 @@ The results achieved by Hwang after one season of predicting the average PPG for
 
 A key difference between Hwang?s thesis and the objective in this thesis is that Hwang does not attempt to predict the points scored for individual games throughout a season, only the average points scored per game over the entire season. Therefore it can be deduced that this study was focused more on forecasting the general trend of player careers, attempting to decipher the effect of age on a players career rather than attempting to predict the points per game of a player against a particular team
 
-\subsection{Data Sets Used}
+\subsection{The Data Set}
 This investigation will focus on players from the 2014 draft class. The dataset contains 27 players consisting of their basic and advanced box scores. The motivation behind using these players is that they are of similar ages and have the same amount of experience in the NBA. Therefore, the assumption made is that as these players are still relatively young, and that they have had a few years of experience and are adjusted to the NBA, their performances are unlikely to drastically improve or decline making it slightly easier to predict their upcoming performances for the 18/19 season. The names of the players are summarised in the following table:
 
 \vspace{5mm}
@@ -139,7 +139,7 @@ Marcus Smart & Julius Randle & Nik Stauskus & Noah Vonleh & Elfrid Payton \\
 \end{tabular}
 \end{center}
 
- \subsubsection{Data Collection}
+ \subsubsection{Overview of the Features}
 The box scores from every game over the past 3 seasons  were scraped from ?Basketball Reference? (see Figure 1 for an example of a box score). The stats recorded could potentially be used a features for forecasting points per game for future games. The features (and the target variable) provided are summarised in the following table. 
 
 \vspace{5mm}
@@ -194,78 +194,23 @@ this place.  If you read this text, you will get no information.
 Really?  Is there no information?  Is there a difference between 
 this ... 
 
-\begin{figure} [h!]
-  \centering
-  \begin{subfigure}[b]{0.4\textwidth}
-    \includegraphics[width=\textwidth]{pairplot1.png}
-    \caption{Data Points Plotted}
-    \label{fig:1}
-  \end{subfigure}
-  %
-  \begin{subfigure}[b]{0.4\textwidth}
-    \includegraphics[width=\textwidth]{pairplot2.png}
-    \caption{Linear Relationship calculated}
-    \label{fig:2}
-  \end{subfigure}
-  \caption{An example of Linear Regression}
-  \label{fig:3}
-\end{figure}
 
-\begin{figure} [h!]
-  \centering
-  \begin{subfigure}[b]{0.4\textwidth}
-    \includegraphics[width=\textwidth]{pairplot3.png}
-    \caption{Data Points Plotted}
-    \label{fig:1}
-  \end{subfigure}
-  %
-  \begin{subfigure}[b]{0.4\textwidth}
-    \includegraphics[width=\textwidth]{pairplot4.png}
-    \caption{Linear Relationship calculated}
-    \label{fig:2}
-  \end{subfigure}
-  \caption{An example of Linear Regression}
-  \label{fig:3}
-\end{figure}
 
- \subsubsection{Overfitting}
-When attempting to fit a machine learning model to data, it is important that overfitting is avoided. Overfitting occurs when the machine learning algorithm attempts to learn the noise within the dataset as well as attempting to learn the signal presented in the dataset. Noise in a dataset refers to the randomness within a dataset and signal refers to the underlying pattern in the dataset that wish to learn.One approach of detecting overfitting when learning is to plot the validation error of the training data and the test data. If the validation error begins to increase for the test data while decreasing for the training data then the model has most likely over fitted the training data. 
+\subsection{Feature Selection Methods}
+In order to improve the performance of the models when predicting the target variable, the most relevant features need to be selected. Feature selection is the approach of selecting the most relevant features for predicted the target variable. Feature selection is used because it removes the features which are irrelevant when predicting the target variable and it aids in avoiding the curse of dimensionality. Additionally feature selection enhances generalisation by reducing overfitting. As Table X shows, there are many features present, however there are some features which may not be pertinent to forecasting the desired target variable, points scored. As a result, different feature selection algorithms were explored, namely the 'SelectKBest' algorithm.
 
-      \begin{figure}[!htb]
-        \center{\includegraphics[width=0.5\textwidth]
-        {overfitpng.png}}
-        \caption{\label{fig:my-label} My figure.  An example of a cool figure}
-      \end{figure}
 
-\subsection{Root Mean Squared Error}
-This investigation will use the Root Mean Squared Error (RMSE) quantify the error in each model. RMSE is that standard deviation between the values predicted by a machine learning model and the values observed.
-\begin{equation}
-RMSE = \sqrt[]{\frac{\sum_{i=0}^{n}(\hat{y}_{i} - y_{i})}{n}}
-\end{equation}
-In order to check whether a model has over fit or underfit the data, the RMSE from the training data and the RMSE of the test data will be compared. If the RMSE is drastically higher for the test data compared to the training data then the model has over fit the data. If the RMSE for both sets are similar then the model has fit the data well. 
+\subsubsection{Select K Best Algorithm}
+The SelecKBest algorithm selects a subset of features of size k which have the strongest relationship with the target variable. A wide range of statistical tests can be used to select these features. The statistical test produces a score for each feature, and the top ?k? features which have the highest score the features which have the strongest relationship with the target. For example, a common statistical test used for this algorithm is the chi-squared statistical test.  
 
-Additionally, the RMSE can be used to compare the efficacy between models. Models with a lower RMSE compared to others imply that they?re better at forecasting the trajectory of player points per game compared to models which score a higher RMSE.
-
-\subsection{Features Available and Feature Selection Methods}
-Hello,  here  is  some  text  without  a  meaning.   This  
-text  should  show  what  a printed text will look like at 
-this place.  If you read this text, you will get no information.  
-Really?  Is there no information?  Is there a difference between 
-this ... 
-
- \subsubsection{PCA (maybe)}
+ \subsubsection{Feature Importance Using the Extra-Trees Classifier}
  Hello,  here  is  some  text  without  a  meaning.   This  
 text  should  show  what  a printed text will look like at 
 this place.  If you read this text, you will get no information.  
 Really?  Is there no information?  Is there a difference between 
 this ... 
 
- \subsubsection{Select K Best Algorithm}
- Hello,  here  is  some  text  without  a  meaning.   This  
-text  should  show  what  a printed text will look like at 
-this place.  If you read this text, you will get no information.  
-Really?  Is there no information?  Is there a difference between 
-this ... 
+
 % MAYBE PUT ML ALGOS AFTER INTRODUCING THE DATA SET + FEATURES STUFF
 \subsection{Technical Background}
  
@@ -410,12 +355,65 @@ Within the context of this investigation, multiple linear regression allows for 
 
 Multivariable Kernel Ridge Regression is a simple extension of its single feature counterpart. Additionally, like Multiple linear regression  there is or than one explanatory variable describing the target variable. 
 
+\subsubsection{Overfitting}
+When attempting to fit a machine learning model to data, it is important that overfitting is avoided. Overfitting occurs when the machine learning algorithm attempts to learn the noise within the dataset as well as attempting to learn the signal presented in the dataset. Noise in a dataset refers to the randomness within a dataset and signal refers to the underlying pattern in the dataset that wish to learn.One approach of detecting overfitting when learning is to plot the validation error of the training data and the test data. If the validation error begins to increase for the test data while decreasing for the training data then the model has most likely over fitted the training data. 
+
+      \begin{figure}[!htb]
+        \center{\includegraphics[width=0.5\textwidth]
+        {overfitpng.png}}
+        \caption{\label{fig:my-label} My figure.  An example of a cool figure}
+      \end{figure}
+
+\subsubsection{Root Mean Squared Error}
+This investigation will use the Root Mean Squared Error (RMSE) quantify the error in each model. RMSE is that standard deviation between the values predicted by a machine learning model and the values observed.
+\begin{equation}
+RMSE = \sqrt[]{\frac{\sum_{i=0}^{n}(\hat{y}_{i} - y_{i})}{n}}
+\end{equation}
+In order to check whether a model has over fit or underfit the data, the RMSE from the training data and the RMSE of the test data will be compared. If the RMSE is drastically higher for the test data compared to the training data then the model has over fit the data. If the RMSE for both sets are similar then the model has fit the data well. 
+
+Additionally, the RMSE can be used to compare the efficacy between models. Models with a lower RMSE compared to others imply that they?re better at forecasting the trajectory of player points per game compared to models which score a higher RMSE.
 
 
 
 
 
 \section{Methodology and Implementation}
+
+\subsection{Feature Selection}
+
+\begin{figure} [h!]
+  \centering
+  \begin{subfigure}[b]{0.4\textwidth}
+    \includegraphics[width=\textwidth]{pairplot1.png}
+    \caption{Data Points Plotted}
+    \label{fig:1}
+  \end{subfigure}
+  %
+  \begin{subfigure}[b]{0.4\textwidth}
+    \includegraphics[width=\textwidth]{pairplot2.png}
+    \caption{Linear Relationship calculated}
+    \label{fig:2}
+  \end{subfigure}
+  \caption{An example of Linear Regression}
+  \label{fig:3}
+\end{figure}
+
+\begin{figure} [h!]
+  \centering
+  \begin{subfigure}[b]{0.4\textwidth}
+    \includegraphics[width=\textwidth]{pairplot3.png}
+    \caption{Data Points Plotted}
+    \label{fig:1}
+  \end{subfigure}
+  %
+  \begin{subfigure}[b]{0.4\textwidth}
+    \includegraphics[width=\textwidth]{pairplot4.png}
+    \caption{Linear Relationship calculated}
+    \label{fig:2}
+  \end{subfigure}
+  \caption{An example of Linear Regression}
+  \label{fig:3}
+\end{figure}
 
 
 \end{document}
