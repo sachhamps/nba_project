@@ -117,8 +117,17 @@ The results achieved by Hwang after one season of predicting the average PPG for
 
 A key difference between Hwang?s thesis and the objective in this thesis is that Hwang does not attempt to predict the points scored for individual games throughout a season, only the average points scored per game over the entire season. Therefore it can be deduced that this study was focused more on forecasting the general trend of player careers, attempting to decipher the effect of age on a players career rather than attempting to predict the points per game of a player against a particular team
 
-\subsection{The Data Set}
-This investigation will focus on players from the 2014 draft class. The dataset contains 27 players consisting of their basic and advanced box scores. The motivation behind using these players is that they are of similar ages and have the same amount of experience in the NBA. Therefore, the assumption made is that as these players are still relatively young, and that they have had a few years of experience and are adjusted to the NBA, their performances are unlikely to drastically improve or decline making it slightly easier to predict their upcoming performances for the 18/19 season. The names of the players are summarised in the following table:
+\subsection{The Dataset}
+
+This investigation will focus on a specific subset of players, specifically players from the 2014 Draft Class. The dataset consists of 27 players and their box score statistics of every game from the previous three seasons. The players and the the references to the statistics are shown below. The incentive for choosing these players is:
+\begin{itemize}
+    \item These players are of similar ages and they have had the same number of years of experience in the NBA.
+    \item They are still relatively young, so the possibility of a decline in performance due to aging is low.
+    \item Although these players are still relatively young, they have played 3 seasons in the league and therefore they should be well adjusted to the difficulty of the NBA.
+\end{itemize}
+Therefore the assumption made when using this dataset is that it is unlikely that the performance of these players is unlikely to drastically improve or decline over the course of the 18/19 season and therefore these players points per game may be more predictable.
+
+The data was collected by scraping the box scores off of the website BasketBall Reference. Some box score statistics can be see as good indicators for predicting future points per game and as a result can be considered as important features. The box score statistics are explained in Table XX.
 
 \vspace{5mm}
 \begin{center}
@@ -134,7 +143,7 @@ Marcus Smart & Julius Randle & Nik Stauskus & Noah Vonleh & Elfrid Payton \\
  \hline 
  Joe Harris & Spencer Dinwiddie & Jerami Grant & Glenn Robinson & Nikola Jokic\\
  \hline
- Dwight Powell & Jordan Clarkson\\
+  Dwight Powell & Jordan Clarkson\\
 \hline
 \end{tabular}
 \end{center}
@@ -187,13 +196,7 @@ PTS & Number of points scored\\
 \vspace{5mm}
 
 
- \subsubsection{Training and Test Data}
- Hello,  here  is  some  text  without  a  meaning.   This  
-text  should  show  what  a printed text will look like at 
-this place.  If you read this text, you will get no information.  
-Really?  Is there no information?  Is there a difference between 
-this ... 
-
+There are other factors which could determine the number of points scored by a player in a game which are not captured using just box score statistics. One of these factors is ?player form?. This can often be hard to quantify, as there is not statistic in basketball which tell us how well a player is performing.  However, a potential way to include form would be use a rolling-window of points scored from previous games, and use this as a feature for predicting the points scored for the upcoming game.  Additionally, another main factor not included in box scores is opponent difficulty. The motivation for including opponent difficulty is that teams vary in defensive capabilities which could impact how many points a player scores in a game.
 
 
 \subsection{Feature Selection Methods}
@@ -213,7 +216,7 @@ this ...
 
 % MAYBE PUT ML ALGOS AFTER INTRODUCING THE DATA SET + FEATURES STUFF
 \subsection{Technical Background}
- 
+%+ the theory of fitting models to dat aand avoiding overfitting and such!
 The following section outlines the theory of the machine learning models used in this project. In addition, the motivation and assumptions made when using these models will also be highlighted:
 
 
@@ -355,6 +358,9 @@ Within the context of this investigation, multiple linear regression allows for 
 
 Multivariable Kernel Ridge Regression is a simple extension of its single feature counterpart. Additionally, like Multiple linear regression  there is or than one explanatory variable describing the target variable. 
 
+ \subsubsection{Training and Test Data}
+Machine learning models are initially fit on a training dataset. The training data consists of a set of explanatory variables and the respective target variables. The model essentially learns from this data and fits its parameters to the training data. After the model is trained, its performance is assessed using a test dataset. If the models performance of the training data is is similar to that of the test data.
+
 \subsubsection{Overfitting}
 When attempting to fit a machine learning model to data, it is important that overfitting is avoided. Overfitting occurs when the machine learning algorithm attempts to learn the noise within the dataset as well as attempting to learn the signal presented in the dataset. Noise in a dataset refers to the randomness within a dataset and signal refers to the underlying pattern in the dataset that wish to learn.One approach of detecting overfitting when learning is to plot the validation error of the training data and the test data. If the validation error begins to increase for the test data while decreasing for the training data then the model has most likely over fitted the training data. 
 
@@ -375,7 +381,7 @@ Additionally, the RMSE can be used to compare the efficacy between models. Model
 
 
 
-
+\newpage
 
 \section{Methodology and Implementation}
 
@@ -414,6 +420,41 @@ Additionally, the RMSE can be used to compare the efficacy between models. Model
   \caption{An example of Linear Regression}
   \label{fig:3}
 \end{figure}
+
+\begin{figure} [h!]
+  \centering
+  \begin{subfigure}[b]{0.45\textwidth}
+    \includegraphics[width=\textwidth]{extratreeclf.png}
+    \caption{Data Points Plotted}
+    \label{fig:1}
+  \end{subfigure}
+  %
+  \begin{subfigure}[b]{0.45\textwidth}
+    \includegraphics[width=\textwidth]{extratreeclf.png}
+    \caption{Linear Relationship calculated}
+    \label{fig:2}
+  \end{subfigure}
+  \caption{An example of Linear Regression}
+  \label{fig:3}
+\end{figure}
+
+\begin{figure} [h!]
+  \centering
+  \begin{subfigure}[b]{0.45\textwidth}
+    \includegraphics[width=\textwidth]{extratreeclf.png}
+    \caption{Data Points Plotted}
+    \label{fig:1}
+  \end{subfigure}
+  %
+  \begin{subfigure}[b]{0.45\textwidth}
+    \includegraphics[width=\textwidth]{extratreeclf.png}
+    \caption{Linear Relationship calculated}
+    \label{fig:2}
+  \end{subfigure}
+  \caption{An example of Linear Regression}
+  \label{fig:3}
+\end{figure}
+
 
 
 \end{document}

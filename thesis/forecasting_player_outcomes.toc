@@ -5,11 +5,10 @@
 \contentsline {subsection}{\numberline {1.3}Existing Literature}{4}
 \contentsline {subsubsection}{\numberline {1.3.1}ARIMA model Time Series Player Data}{4}
 \contentsline {subsubsection}{\numberline {1.3.2}Weibull-Gamma Statistical Model}{4}
-\contentsline {subsection}{\numberline {1.4}The Data Set}{5}
-\contentsline {subsubsection}{\numberline {1.4.1}Overview of the Features}{5}
-\contentsline {subsubsection}{\numberline {1.4.2}Training and Test Data}{6}
+\contentsline {subsection}{\numberline {1.4}The Dataset}{5}
+\contentsline {subsubsection}{\numberline {1.4.1}Overview of the Features}{6}
 \contentsline {subsection}{\numberline {1.5}Feature Selection Methods}{6}
-\contentsline {subsubsection}{\numberline {1.5.1}Select K Best Algorithm}{6}
+\contentsline {subsubsection}{\numberline {1.5.1}Select K Best Algorithm}{7}
 \contentsline {subsubsection}{\numberline {1.5.2}Feature Importance Using the Extra-Trees Classifier}{7}
 \contentsline {subsection}{\numberline {1.6}Technical Background}{7}
 \contentsline {subsubsection}{\numberline {1.6.1}Simple Moving Average}{7}
@@ -17,7 +16,8 @@
 \contentsline {subsubsection}{\numberline {1.6.3}Bayesian Linear Regression}{8}
 \contentsline {subsubsection}{\numberline {1.6.4}Kernel Ridge Regression}{9}
 \contentsline {subsubsection}{\numberline {1.6.5}Multiple Linear Regression and Multivariable Kernel Ridge Regression}{10}
-\contentsline {subsubsection}{\numberline {1.6.6}Overfitting}{11}
-\contentsline {subsubsection}{\numberline {1.6.7}Root Mean Squared Error}{11}
-\contentsline {section}{\numberline {2}Methodology and Implementation}{11}
-\contentsline {subsection}{\numberline {2.1}Feature Selection}{11}
+\contentsline {subsubsection}{\numberline {1.6.6}Training and Test Data}{11}
+\contentsline {subsubsection}{\numberline {1.6.7}Overfitting}{11}
+\contentsline {subsubsection}{\numberline {1.6.8}Root Mean Squared Error}{12}
+\contentsline {section}{\numberline {2}Methodology and Implementation}{13}
+\contentsline {subsection}{\numberline {2.1}Feature Selection}{13}
