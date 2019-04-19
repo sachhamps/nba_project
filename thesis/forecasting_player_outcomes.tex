@@ -119,6 +119,8 @@ A key difference between Hwang?s thesis and the objective in this thesis is that
 
 \subsection{The Dataset}
 
+%GO THROUGH THE  PROCESS OF ML: DATA COLLECTION AND PREPROCESSING ->TRAINING -> TESTING -> DISCUSSION AND ANALYSIS
+
 This investigation will focus on a specific subset of players, specifically players from the 2014 Draft Class. The dataset consists of 27 players and their box score statistics of every game from the previous three seasons. The players and the the references to the statistics are shown below. The incentive for choosing these players is:
 \begin{itemize}
     \item These players are of similar ages and they have had the same number of years of experience in the NBA.
@@ -188,6 +190,8 @@ TOV & Number of turnovers conceded\\
 PF & Number of personal fouls conceded\\
 \hline
 PTS & Number of points scored\\
+\hline
+GmSc & A score which determines how important a player was in a win\\
 \hline
 +/- & Net number of points scored when on the court\\
 \hline
@@ -385,18 +389,104 @@ Additionally, the RMSE can be used to compare the efficacy between models. Model
 
 \section{Methodology and Implementation}
 
+After data was collected for each player, the data was placed in an array and preprocessed. Certain games were removed in order to avoid the data from being skewed. For example, if a player had played only a small number of minutes of a game due to unforeseen circumstances such as obtaining an injury, it would be removed from the dataset. Player form was also added to the array. It was decided that the points scored per game over the last 3 games were added. Furthermore opponent difficulty was also added to the array using the defensive rating metric provided by the NBA.
+
+Scatter plots entailing the points scored over games played were then made in order to visualise the relationship between these two variables before they were trained by the machine learning models.The figures also show the least squares regression plot of two of the players in the dataset. Figures X and Y are the scatter plots for two players; Joel Embiid and Nikola Jokic. As shown in these figures, the variance of points scored over a game-by-game basis is very large, thus potentially making the task of predicted the exact number of points scored by players in a particular game a very challenging task. However, a general trend can be deduced from these graphs. There is a weakly positive correlation between number of games played and points, therefore it can hypothesised that for the upcoming season, this trend will continue. Some models in this investigation consist of one explanatory variable and a target variable, these include the simple moving average model, simple linear regression and kernel ridge regression.
+
+
+\begin{figure} [h!]
+  \centering
+  \begin{subfigure}[b]{0.45\textwidth}
+    \includegraphics[width=\textwidth]{../players/player24.png}
+    \caption{Data Points Plotted}
+    \label{fig:1}
+  \end{subfigure}
+  %
+  \begin{subfigure}[b]{0.45\textwidth}
+    \includegraphics[width=\textwidth]{../players/player3.png}
+    \caption{Linear Relationship calculated}
+    \label{fig:2}
+  \end{subfigure}
+  \caption{An example of Linear Regression}
+  \label{fig:3}
+\end{figure}
+
+
+
 \subsection{Feature Selection}
 
+Feature selection is required for the models which  require multiple features. Additionally, more features may be allow us to explaining the target variable better and lead to more accurate results when forecasting points per game.  Pair plots were produced to see if there was a correlation between a feature and the target variable. The features used to predict the points scored in future games consist of the box score statistics of the previous game, as well as the current opponent for that particular game. Examples plots of some of the features for Nikola Jokic can be seen below.
+
+The results when visualising the correlation between the features and the target variable suggest that there is no correlation between the points scored and the opponent difficulty, explaining that that the number of points scored for a player is independent of opponent. Additionally the same results can be concluded for the plus-minus (+/-) statistic. However, other features such as field goal attempts (FGA), minutes played (MP) and a players GameScore (GmSc) present weakly positive correlation. This would indicate that these features aid in forecasting a players points per game. 
+
 \begin{figure} [h!]
   \centering
-  \begin{subfigure}[b]{0.4\textwidth}
-    \includegraphics[width=\textwidth]{pairplot1.png}
+  \begin{subfigure}[b]{0.32\textwidth}
+    \includegraphics[width=\textwidth]{../mp_pts.png}
+    \label{fig:4}
+  \end{subfigure}
+  %
+  \begin{subfigure}[b]{0.32\textwidth}
+    \includegraphics[width=\textwidth]{../fga_pts.png}
+    \label{fig:5}
+  \end{subfigure}
+  %
+  \begin{subfigure}[b]{0.32\textwidth}
+    \includegraphics[width=\textwidth]{../gmsc_pts.png}
+    \label{fig:6}
+  \end{subfigure}
+  \label{fig:7}
+\end{figure}
+
+\begin{figure} [h!]
+  \centering
+  \begin{subfigure}[b]{0.32\textwidth}
+    \includegraphics[width=\textwidth]{../opp.png}
+    \label{fig:4}
+  \end{subfigure}
+  %
+  \begin{subfigure}[b]{0.32\textwidth}
+    \includegraphics[width=\textwidth]{../pminus_pts.png}
+    \label{fig:5}
+  \end{subfigure}
+  %
+  \begin{subfigure}[b]{0.32\textwidth}
+    \includegraphics[width=\textwidth]{../fgoals_pts.png}
+    \label{fig:6}
+  \end{subfigure}
+  \label{fig:7}
+\end{figure}
+
+
+
+After visualising the correlation between the features and the target variable, the feature selection methods outlined in the previous chapter were applied to the dataset. After applying these methods, the final subset of features will consist of those which best forecast the points scored.
+
+\subsection{Results using Select K Best}
+
+The datasets of each players statistics were subjected to the Select K Best Algorithm where the ?k? most correlated features with points scored using the chi2 test was selected. The question that arises when using this algorithm is how many features should we select? This is explored more in the upcoming chapters, however the general logic of combatting this issue was increasing the value of k, applying the k number of features to the model and recording the RMSE. If by adding more features, the RMSE for the training and test data increases, then the number of features will be reduced. After applying the select k best to all player datasets, the most correlated feature was number of games played, followed by points scored from the previous 3 games. The next two features selected was the Game Score and the Field Goals attempted from the previous game. The explanatory variables for the 4 most correlated features are shown in the matrix below.
+\[
+\begin{bmatrix}
+    x_{11} & x_{12} & x_{13} & \dots  & x_{1n} \\
+    x_{21} & x_{22} & x_{23} & \dots  & x_{2n} \\
+    \vdots & \vdots & \vdots & \ddots & \vdots \\
+    x_{d1} & x_{d2} & x_{d3} & \dots  & x_{dn}
+\end{bmatrix}
+\]
+
+\subsection{Results Using the Extra-Tree Classifier}
+
+The results obtained when selecting the most relevant features using the Extra-Trees classifier was extremely similar to the features obtained using the SelectKBest algorithm. For most players, the features which were highly correlated with points scored for certain games were the number of games played, the players GameScore and the previous games played. However, due to the randomised nature of the extra trees classifier, on a few iterations of the algorithm, one of the highly correlated features for certain players consisted of the players plus-minus (+/-) from the previous game and the opponent they were currently playing. Examples of these are shown in the figures below. As a result, these features were also experimented with and applied to the machine learning models in order to see whether they yield more accurate results.
+
+\begin{figure} [h!]
+  \centering
+  \begin{subfigure}[b]{0.45\textwidth}
+    \includegraphics[width=\textwidth]{etc1.png}
     \caption{Data Points Plotted}
     \label{fig:1}
   \end{subfigure}
   %
-  \begin{subfigure}[b]{0.4\textwidth}
-    \includegraphics[width=\textwidth]{pairplot2.png}
+  \begin{subfigure}[b]{0.45\textwidth}
+    \includegraphics[width=\textwidth]{etc2.png}
     \caption{Linear Relationship calculated}
     \label{fig:2}
   \end{subfigure}
@@ -404,16 +494,75 @@ Additionally, the RMSE can be used to compare the efficacy between models. Model
   \label{fig:3}
 \end{figure}
 
+After the relevent features had been selected, the machine learning models outlined in Chapter 1.6 were then trained and tested. The next chapter entails the results of this investigation: 
+
+\subsection{Kernel Selection}
+
+(a RBF kernel was used)
+\newpage
+
+\section{Results}
+
+After the models learned the training data, they were evaluated using the test dataset - the results are shown below. Table X shows the average RMSE of each model when predicting points scored per game for every player in the dataset for the 2018/19 season.
+
+Table Y depicts the models RMSE for predicting for players season average points per game. In other words, the points predicted for each game of a player is averaged and compared to the actual season average the player scored. This table can be used to see the overall players trajectory for the season, and often determines whether a player had a successful season.
+\vspace{5mm}
+\begin{center}
+\begin{tabular}{ |c|c|} 
+ \hline
+ \textbf{Model} & \textbf{Mean RMSE}\\ 
+ \hline
+ Simple Moving Average &  6.71\\ 
+ \hline
+ Simple Linear Regression &  6.39\\ 
+ \hline
+ Bayesian Linear Regression& 6.90\\
+ \hline
+ Kernel Ridge Regression& 6.27\\
+ \hline
+ Multiple Linear Regression& 6.60\\
+ \hline
+ Multivariable Kernel Ridge Regression & 6.27\\
+ \hline
+\end{tabular}
+\end{center}
+\vspace{5mm}
+
+\vspace{5mm}
+\begin{center}
+\begin{tabular}{ |c|c|} 
+ \hline
+     \textbf{Model} & \textbf{Mean RMSE}\\ 
+ \hline
+ Simple Moving Average  & 3.80\\ 
+ \hline
+ Simple Linear Regression & 3.13\\ 
+ \hline
+ Bayesian Linear Regression  & 3.73 \\
+ \hline
+ Kernel Ridge Regression  & 2.86\\
+ \hline
+ Multiple Linear Regression& 3.13\\
+ \hline
+ Multivariable Kernel Ridge Regression  & 2.90\\
+ \hline
+\end{tabular}
+\end{center}
+\vspace{5mm}
+\subsection{Simple Moving Average}
+
+The simple moving average, arguably the most naive method used in this investigation, took  the mean of the last 'n' games and assumed that future points scored would be the average produced. Choosing the size of 'n' seemed to be a challenging task. In order to find the n which resulted in the lowest RMSE when predicting the points of every game in the 18/19 season, different values of n were experimented. The size of 'n' which resulted in the lowest RMSE was 20, suggesting that the previous 20 games were the most accurate when using this model to forecast future points scored per game. Example plots forecasting the points scored for the 18/19 can be seen in Figure X.
+
 \begin{figure} [h!]
   \centering
-  \begin{subfigure}[b]{0.4\textwidth}
-    \includegraphics[width=\textwidth]{pairplot3.png}
+  \begin{subfigure}[b]{0.49\textwidth}
+    \includegraphics[width=\textwidth]{../players_sma/player0.png}
     \caption{Data Points Plotted}
     \label{fig:1}
   \end{subfigure}
   %
-  \begin{subfigure}[b]{0.4\textwidth}
-    \includegraphics[width=\textwidth]{pairplot4.png}
+  \begin{subfigure}[b]{0.49\textwidth}
+    \includegraphics[width=\textwidth]{../players_sma/player2.png}
     \caption{Linear Relationship calculated}
     \label{fig:2}
   \end{subfigure}
@@ -421,16 +570,20 @@ Additionally, the RMSE can be used to compare the efficacy between models. Model
   \label{fig:3}
 \end{figure}
 
+\subsection{Simple and Bayesian Linear Regression}
+
+Simple Linear Regression resulted in a lower RMSE compared to the simple moving average model, implying that this model is a better fit to the data compared the previous model. Example plots of two players are shown in Figure Y. 
+
 \begin{figure} [h!]
   \centering
-  \begin{subfigure}[b]{0.45\textwidth}
-    \includegraphics[width=\textwidth]{extratreeclf.png}
+  \begin{subfigure}[b]{0.49\textwidth}
+    \includegraphics[width=\textwidth]{../players_lr/player24.png}
     \caption{Data Points Plotted}
     \label{fig:1}
   \end{subfigure}
   %
-  \begin{subfigure}[b]{0.45\textwidth}
-    \includegraphics[width=\textwidth]{extratreeclf.png}
+  \begin{subfigure}[b]{0.49\textwidth}
+    \includegraphics[width=\textwidth]{../players_lr/player26.png}
     \caption{Linear Relationship calculated}
     \label{fig:2}
   \end{subfigure}
@@ -438,22 +591,58 @@ Additionally, the RMSE can be used to compare the efficacy between models. Model
   \label{fig:3}
 \end{figure}
 
+On the other hand, Bayesian Linear Regression produced the highest RMSE out of all the other models in this investigation.
+
+\subsection{Kernel Ridge Regression}
+
+Kernel ridge regression produced a lower RMSE compared to the other investigation, however choosing the correct regularisation parameter was key in finding the best fitting model whilst also avoiding overfitting of the training data. The results produced suggest that a non-linear curve fits the relationship between the games played and points scored better than a linear fit.
+
 \begin{figure} [h!]
   \centering
-  \begin{subfigure}[b]{0.45\textwidth}
-    \includegraphics[width=\textwidth]{extratreeclf.png}
+  \begin{subfigure}[b]{0.49\textwidth}
+    \includegraphics[width=\textwidth]{../players_krr/player2.png}
     \caption{Data Points Plotted}
     \label{fig:1}
   \end{subfigure}
   %
-  \begin{subfigure}[b]{0.45\textwidth}
-    \includegraphics[width=\textwidth]{extratreeclf.png}
+  \begin{subfigure}[b]{0.49\textwidth}
+    \includegraphics[width=\textwidth]{../players_krr/player24.png}
     \caption{Linear Relationship calculated}
     \label{fig:2}
   \end{subfigure}
   \caption{An example of Linear Regression}
   \label{fig:3}
 \end{figure}
+
+\subsection{Multivariable Linear Regression and Kernel Ridge Regression}
+Multivariable  linear regression produced a larger error value compared to its simple counterpart, however multivariable kernel regression produced extremely similar results to single feature kernel ridge regression. As stated in the previous section, the features selected were points scored from previous games, as well as the number of FGA attempts and the Game Score from the previous games.
+
+When looking at Table Y, we can see that the models varied in accuracy compared to one another. We can see that both simple kernel ridge regression and multivariable kernel ridge regression were the most accurate for forecasting the points scored on a game by game basis.
+
+Single feature kernel ridge regression produced the lowest error when forecasting the average points scored of players in the 2018/19 season regarding points scored.
+
+
+\newpage
+\section{Discussion and Analysis}
+
+> It can be said that due to the extremely high variance of points scored in a game by game basis that it is extremely difficult to predict the points scored per game. The task of predicting the exact number of points scored in a particular proved to be a difficult task. However, on the other hand, the machine learning models performed fairly well at determining the average points scored per game for the players 18/19 season and resultantly the trajectory of a players career for that particular season.
+
+> Looking at the results, both kernelized models provide the lowest RMSE for predicted the points scored on a game by game basis for all players over the 2018/19 season. 
+
+> The potential reason behind this is because, as stated earlier, the performances of a player?s career may not be linear. Looking at the results this can definitely be seen in Figure X. Where this particular player scored  very few points per game in the initial stage of his career, but begin to increased his output over the last X games before the 18/19 season. Therefore the kernelized methods forecasted that the rate of increase of points scored would transfer to the 18/19 season. 
+
+This assumption seems more rational compared to linear methods because games that players played early on in their career, where they may not have been as developed, have the same weighting as more recent games. These games early on in players careers may no longer be representative of the players that they are now 3 seasons later.
+
+> Having said this, the RMSE scored for each model are very close, with the error values ranging from 6.27-6.90, thus indicating that although the kernelised models produced a lower RMSE, it might not be statistically significant.
+
+> Changing the regularisation parameter
+
+> Ensuring that there is no overfitting (graphs)
+
+\newpage
+\section{Conclusions and Future Work}
+
+Feature selection is required for the models which  require multiple features. Additionally, more features may be allow us to explaining the target variable better and lead to more accurate results when forecasting points per game. Pair plots were produced to see if there was a correlation between a feature and the target variable. Furthermore, the feature selection algorithms were applied to the dataset. As a result, the final subset of features consisted of those which best forecast the points scored for the next game. 
 
 
 
