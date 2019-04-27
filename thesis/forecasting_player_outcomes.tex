@@ -625,19 +625,99 @@ Single feature kernel ridge regression produced the lowest error when forecastin
 \newpage
 \section{Discussion and Analysis}
 
-> It can be said that due to the extremely high variance of points scored in a game by game basis that it is extremely difficult to predict the points scored per game. The task of predicting the exact number of points scored in a particular proved to be a difficult task. However, on the other hand, the machine learning models performed fairly well at determining the average points scored per game for the players 18/19 season and resultantly the trajectory of a players career for that particular season.
+\subsection{Game by Game and General Trend Analysis}
+Firstly, the average RMSE for each model ranges from 6.27 - 6.90 points per game for the players in the dataset. This implies that predicting the exact number of points scored in a game using these models is a challenging task. The number of points scored on a game by game basis can vary and fluctuate by a large amount, and these models were not able to capture these fluctuations. An example of that occurred this season was when Nikola Jokic scored a season high 40 points in the 42nd game of the season, but the models used in this investigation predicted he would only score between 20 to 23 points per game, which is within the range of points that Jokic had scored in the previous 3 games. 
 
-> Looking at the results, both kernelized models provide the lowest RMSE for predicted the points scored on a game by game basis for all players over the 2018/19 season. 
+However, on the other hand, predicting the season average of points scored for the players resulted in a lower RMSE. Thus, it can be argued that the models performed better when attempting to decipher the average of the number of points scored by a player over a season compared to every individual game in a season. Therefore, these models achieved reasonable success when attempting to give foresight in overall future performance. This can be useful for NBA franchises when they are attempting to forecast a particular player?s average points scored for an upcoming season.
 
-> The potential reason behind this is because, as stated earlier, the performances of a player?s career may not be linear. Looking at the results this can definitely be seen in Figure X. Where this particular player scored  very few points per game in the initial stage of his career, but begin to increased his output over the last X games before the 18/19 season. Therefore the kernelized methods forecasted that the rate of increase of points scored would transfer to the 18/19 season. 
+The results produced by the regression models for predicting the season average points scored were more accurate for some players compared to other players which suggests that the regression models fit the trajectory of a players career better than other other players. For example, the kernel regression model forecasted that Nikola Jokic would average 20.9 points per game which was close to the 20.1 points per game he achieved. On the other hand, this model predicted Joel Embiid would average 22.3 points per game based off of all of his career games, however he managed to achieve a season average of 27.5 points per game, 5.2 points greater than the prediction and a much larger average compared to his previous seasons. This example shows that these models are not able to anticipate large changes in player form for future seasons.
 
-This assumption seems more rational compared to linear methods because games that players played early on in their career, where they may not have been as developed, have the same weighting as more recent games. These games early on in players careers may no longer be representative of the players that they are now 3 seasons later.
 
-> Having said this, the RMSE scored for each model are very close, with the error values ranging from 6.27-6.90, thus indicating that although the kernelised models produced a lower RMSE, it might not be statistically significant.
+\subsection{Comparing the Models}
+When choosing the model which best fits the data, the results show that single feature kernel ridge regression produced the lowest RMSE when attempting to predict points scored for every game of the 18/19 NBA season as well forecasting the average points scored per game all players included in the dataset.
 
-> Changing the regularisation parameter
+These results suggest that the trend of player performance over the course of his career is not linear. The plots confirm this assumption and can be seen in Figure X (Nikola Jokic) where this players points scored initially increases at a reasonable rate as the number of games played increases, however the rate of increase of points scored begins to plateau before the upcoming season. Therefore this model predicts that the number of points scored for the 2018/19 season will follow this trend.
 
-> Ensuring that there is no overfitting (graphs)
+A potential reason why the kernelised regression models produces a slightly lower RMSE compared to the linear models is the assumption that games played closer to the 18/19 season hold more importance compared to the games played early on in a players career. Linear regression attempts to find a best fitting linear relationship between the explanatory and target variable using all the data points, however, data points from games which are early in a players career may not be representative for a players career compared to later games.
+
+When comparing the single feature models to the multivariable models, the results display that the single feature methods produce a similar or even a lower RMSE compared to their multivariable counterparts. The results here suggest that the number of games played is sufficient enough to produce the most accurate forecasting of points scored as possible, and that the additional features included do not further improve accuracy of the results.
+
+However, having stated the above, the RMSE for each model are extremely close between one another when predicting game by game results and season average results. All regression models performed similarly to one another, and it  can be argued that no model is significantly more accurate than one another.
+
+
+\subsection{Limitations}
+There were many limitations involved when attempting to predict the target variable. Firstly, capturing player form as a feature proved to be difficult. As explained before, this investigation used points scored from a specific number of previous games. However, this assumption made does not completely capture the tangible form of a player. For example, this assumption would not be able to foresee whether a player has an ?off-game? and doesn?t manage to score as many points as usual. Additionally, players often have a busy schedule and can get fatigued or tired when playing multiple games in a short amount of time and thus can affect the number of points scored in a game. This was not taken into account in this investigation. Also, although none of the players in the dataset did suffer from any long term injuries, if NBA franchises were to use these models to forecast player performance , it would not be able to forecast any injuries that players may get. 
+
+However, one factor that it is believe did in fact limit the results, is that certain players did change teams for the 2018/19 season. The reason this could affect the results is because the players role may change if he changes team. For example, if the player changes team which has better players compared to his former team, he may not play as much per game and as a result the number of points the player scored may decrease. Additionally, changing team also means changing teammates. As a result, teammate chemistry would have changed and this could have directly affected the point scored by the players. An example of this occurring in the dataset was Julius Randle, where he moved from the Los Angeles Lakers to the New Orleans Pelicans. Resultantly, Randle?s average points per game for the season increased dramatically from the previous season (16.1 points per game to 21.4). These models were not able to quantify the effect of a player changing teams and as a result would limit the results for players in this circumstance.
+
+\subsection{Overfitting Problem}
+As stated before, avoiding overfitting is key when attempting to forecast future outcomes when using machine learning models. The RMSE of the training data was compared to the test data.
+\vspace{5mm}
+\begin{center}
+\scalebox{0.8}{
+\begin{tabular}{ |c|c|c|} 
+ \hline
+ \textbf{Model} & \textbf{Mean RMSE of Training Data} &\textbf{Mean RMSE of Test Data}\\ 
+ \hline
+ Simple Moving Average & 5.91 &  6.71\\ 
+ \hline
+ Simple Linear Regression & 5.69 &  6.39\\ 
+ \hline
+ Bayesian Linear Regression& 6.01 & 6.90\\
+ \hline
+ Kernel Ridge Regression& 5.50 & 6.27\\
+ \hline
+ Multiple Linear Regression& 5.67 & 6.60\\
+ \hline
+ Multivariable Kernel Ridge Regression & 5.47 & 6.27\\
+ \hline
+\end{tabular}
+}
+\end{center}
+\vspace{5mm}
+
+\subsubsection{Picking the correct Regularisation parameter}
+
+For the kernelized methods, it was vital that the correct regularisation parameter was selected in order to prevent overfitting. When experimenting with different values, it was concluded that higher values of lambda resulted in an overfitting of the training data and thus resulted in a poor fit for the test data. However, on the other hand, if the regularisation parameter was too low, the models would under fit the training data and as a result the RMSE for the test data would be high. As a result the regularisation parameter was chosen by looping through different values, and choosing the value which resulted in the lowest RMSE for the training and testing data. The graph below show the testing data?s RMSE for single feature kernel regression and multi feature kernel regression with varying values of lambda. 
+
+      \begin{figure}[!htb]
+        \center{\includegraphics[width=0.5\textwidth]
+        {overfitpng.png}}
+        \caption{\label{fig:my-label} My figure.  An example of a cool figure}
+      \end{figure}
+
+
+It can be seen by the graphs that there is a fall in the RMSE as the regularisation parameter increases, but as the regularisation parameter rises past a certain value, the RMSE begins to increase suggesting that the model has overfit the training data.
+
+
+
+\subsection{Choosing Correct window for form}
+
+As stated earlier, when attempting to forecast the points scored from a game, one of the features was player form. In order to capture player form the points scored from a ?window? of games were included. However choosing the number of games to use in this window proved to be a challenging task. The method to combat was to vary the window size and see which window size would result in the lowest average RMSE. In other words, the number of games used to explain player performance were experimented with. The chart below depicts the average RMSE for the multivariable models when different sized windows were used. 
+
+\vspace{5mm}
+\begin{center}
+\begin{tabular}{ |c|c|} 
+ \hline
+     \textbf{Model} & \textbf{Mean RMSE}\\ 
+ \hline
+ Simple Moving Average  & 3.80\\ 
+ \hline
+ Simple Linear Regression & 3.13\\ 
+ \hline
+ Bayesian Linear Regression  & 3.73 \\
+ \hline
+ Kernel Ridge Regression  & 2.86\\
+ \hline
+ Multiple Linear Regression& 3.13\\
+ \hline
+ Multivariable Kernel Ridge Regression  & 2.90\\
+ \hline
+\end{tabular}
+\end{center}
+\vspace{5mm}
+
+This approach seemed the most logical as the previous number of games which resulted in the lowest average RMSE would mean that it is more accurate at forecasting the points scored for the next game.
 
 \newpage
 \section{Conclusions and Future Work}
