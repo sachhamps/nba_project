@@ -92,6 +92,30 @@ The main motivation for this investigation is to help NBA franchises make more i
 Another motivation for exploring this project is the drastic increase in the sports analytics industry and its role in the sports betting market. The sports analytics market is expected to reach \$2.09 billion by 2022, with many more basketball enthusiasts exploring different methods to predict outcomes in basketball games. For example Google Cloud, NCAA and Kaggle hosted the annual `March Madness' competition where basketball fans attempt to forecast outcomes of a college basketball tournament in an attempt to win up to \$10,000.
 
  Furthermore the sports betting market is so large solely because it is challenging to predict the outcomes of sporting events. As a result, another motivation for exploring this project is to discover a more accurate method of predicting player outcomes to better inform sports betting enthusiasts. 
+ 
+ \subsection{Introduction to Machine Learning Models}
+
+This investigation will explore a range of machine learning models in order to find the most accurate when forecasting points per game for players. A machine learning model is a mathematical representation of a real-world process; in the case of this investigation, the machine learning algorithms will attempt to mathematically model points scored in future games. In order to generate a model, necessary features will have to be selected and training data will have to be provided such that the machine learning model can learn.
+
+
+\subsubsection{Features and Feature Selection Methods}
+Features are measurable properties of the predicted variable. In machine learning, features aid in predicting the target variable. Some models in this investigation will use multiple features in an attempt to forecast points scored and these are stored in a $n$ dimensional vector.
+
+In order to improve the performance of the models when predicting the target variable, the most relevant features need to be selected. Feature selection is the approach of selecting the most relevant features for predicting the target variable. It is important because it removes the features which are irrelevant when predicting the target variable and it aids in avoiding the curse of dimensionality. Additionally feature selection enhances generalisation by reducing overfitting. There are many features present in this investigation (examples can be seen in Table 3), however there are some features which may not be pertinent to forecasting the desired target variable in the investigation - points scored. As a result, different feature selection algorithms were explored, namely the 'SelectKBest' algorithm and the Extra-Trees Classifier.
+
+ \subsubsection{Training and Test Data}
+Machine learning models are initially fit on a training dataset. The training data consists of a set of explanatory variables and the respective target variables. The model essentially learns from this data and fits its parameters to the training data. After the model is trained, its performance is assessed using a test dataset. If the models performance of the training data is is similar to that of the test data.
+
+\subsubsection{Overfitting}
+When attempting to fit a machine learning model to data, it is important that overfitting is avoided. Overfitting occurs when the machine learning algorithm attempts to learn the noise within the dataset as well as attempting to learn the signal presented in the dataset. Noise in a dataset refers to the randomness within a dataset and signal refers to the underlying pattern in the dataset that wish to learn.One approach of detecting overfitting when learning is to plot the validation error of the training data and the test data. If the validation error begins to increase for the test data while decreasing for the training data then the model has most likely over fitted the training data. 
+
+      \begin{figure}[!htb]
+      \captionsetup{justification=centering}
+        \center{\includegraphics[width=0.6\textwidth]
+        {overfitpng.png}}
+        \caption{\label{fig:my-label} A visualisation of overfitting. The red line represents the error of the testing data whereas the blue line represents the error. If there is an attempt to completely minimise the training data's error, then the model will become less flexible when attempting to predict future data points, resulting in an increase in the testing data's error. }
+      \end{figure}
+
 
 
 
@@ -216,17 +240,126 @@ GmSc & A score which determines how important a player was in a win\\
 
 There are other factors which could determine the number of points scored by a player in a game which are not captured using just box score statistics. One of these factors is `player form'. This can often be hard to quantify, as there is not a statistic in basketball which quantifies how well a player is performing.  However, a potential way to include form would be use a rolling-window of points scored from previous games, and use this as a feature for predicting the points scored for the upcoming game.  Additionally, another main factor not included in box scores is opponent difficulty. The motivation for including opponent difficulty is that teams vary in defensive capabilities which could impact how many points a player scores in a game.
 
-
-\subsection{Feature Selection Methods}
-In order to improve the performance of the models when predicting the target variable, the most relevant features need to be selected. Feature selection is the approach of selecting the most relevant features for predicting the target variable. It is used because it removes the features which are irrelevant when predicting the target variable and it aids in avoiding the curse of dimensionality. Additionally feature selection enhances generalisation by reducing overfitting. There are many features present in this investigation (examples can be seen in Table 3), however there are some features which may not be pertinent to forecasting the desired target variable in the investigation - points scored. As a result, different feature selection algorithms were explored, namely the 'SelectKBest' algorithm and the Extra-Trees Classifier.
-
-
-\subsubsection{SelectKBest Algorithm}
+\subsection{SelectKBest Algorithm}
 The `SelectKBest' algorithm selects a subset of features of size $k$ which have the strongest relationship with the target variable. A wide range of statistical tests can be used to select these features. The statistical test produces a score for each feature, and the top $k$ features which have the highest score the features which have the strongest relationship with the target. For example, a common statistical test used for this algorithm is the chi-squared statistical test.  
 
- \subsubsection{Feature Importance Using the Extra-Trees Classifier}
+ \subsection{Feature Importance Using the Extra-Trees Classifier}
  The Extra-Trees Classifier is an algorithm which builds multiple decision trees at random using some of the observations from the training data and the some of the features present in the dataset. This classifier can be used to measure the relative importance of each feature on the predicted variable. The use that the Extra-Trees Classifier provides is that it can produce a `score' for every feature in the dataset, where the higher the score implies the more the correlated that feature is with the predicted variable.
 
+
+
+\newpage
+
+\section{Methodology and Implementation}
+
+After data was collected for each player, the data was placed in an array and preprocessed. Certain games were removed in order to avoid the data from being skewed. For example, if a player had played only a small number of minutes of a game due to unforeseen circumstances such as obtaining an injury, it would be removed from the dataset. Player form was also added to the array. It was decided that the points scored per game over a certain number of games were added. Furthermore opponent difficulty was also added to the array using the defensive rating metric provided by the NBA.
+
+Scatter plots depicting the points scored over games played were then made in order to visualise the relationship between these two variables before they were trained by the machine learning models.The figures also show the Least Squares Regression plot of two of the players in the dataset. Figures 6a) and 6b) are the scatter plots for two players, Joel Embiid and Nikola Jokic. As visualised in these figures the variance of points scored over a game-by-game basis is very large, thus potentially making the task of predicting the exact number of points scored by players in a particular game a very challenging task. However a general trend can be deduced from these graphs. There is a weakly positive correlation between number of games played and points, therefore it can hypothesised that for the upcoming season, this trend will continue. Some models in this investigation consist of one explanatory variable and a target variable, these include the Simple Moving Average model, Simple Linear Regression, Bayesian Linear Regression and Kernel Ridge Regression.
+
+
+\begin{figure} [h!]
+      \captionsetup{justification=centering}
+\makebox[\linewidth][c]{%
+\begin{subfigure}[b]{.7\textwidth}
+\centering
+\includegraphics[width=1.05\textwidth]{../players/player24.png}
+\caption{Graph visualising Nikola Jokic's points scored}
+\end{subfigure}%
+\begin{subfigure}[b]{.7\textwidth}
+\centering
+\includegraphics[width=1.05\textwidth]{../players/player3.png}
+\caption{Graph visualising Aaron Gordon's points scored}
+\end{subfigure}%
+}\\
+\caption{The two Figures above visualise the relationship between the points scored of two players in the dataset over the course of their career's so far. The blue line shows the regression represents the linear relationship between the two variables and the shaded blue region represents one standard deviation.}
+\end{figure}
+
+
+
+\subsection{Feature Selection}
+
+Feature selection is required for the models which use multiple features. Using more features may allow us to explain the target variable better and produce more accurate results when forecasting points per game.  Pair plots were produced to see if there was a correlation between a feature and the target variable. 
+
+As stated earlier the features used to predict the points scored in future games consist of the box score statistics of the previous game, as well as the current opponent for that particular game. Examples plots of some of the features for Nikola Jokic can be seen below. The results when visualising the correlation between the features and the target variable suggest that there is no correlation between the points scored and the opponent difficulty, explaining that that the number of points scored for a player is independent of opponent. Additionally the same results can be concluded for the plus-minus (+/-) statistic. However, other features such as field goal attempts (FGA), minutes played (MP) and a players GameScore (GmSc) present weakly positive correlation. This would indicate that these features aid in forecasting a players points per game. 
+
+
+\begin{figure} [h!]
+\makebox[\linewidth][c]{%
+\begin{subfigure}[b]{.45\textwidth}
+\centering
+\includegraphics[width=0.95\textwidth]{../mp_pts.png}
+\caption{Minutes Played}
+\end{subfigure}%
+\begin{subfigure}[b]{.45\textwidth}
+\centering
+\includegraphics[width=0.95\textwidth]{../fga_pts.png}
+\caption{Field Goals Attempted}
+\end{subfigure}%
+\begin{subfigure}[b]{.45\textwidth}
+\centering
+\includegraphics[width=0.95\textwidth]{../gmsc_pts.png}
+\caption{GameScore}
+\end{subfigure}%
+}\\
+\caption{The Figures above visualise the relationship between points scored in a game and specific stats from the prior game. This was done to see if there was a positive correlation between these features and the target variable. The Figures shown are taken from one player in the dataset }
+\end{figure}
+
+
+\begin{figure} [h!]
+\makebox[\linewidth][c]{%
+\begin{subfigure}[b]{.45\textwidth}
+\centering
+\includegraphics[width=0.95\textwidth]{../opp.png}
+\caption{Opponent Difficulty}
+\end{subfigure}%
+\begin{subfigure}[b]{.45\textwidth}
+\centering
+\includegraphics[width=0.95\textwidth]{../pminus_pts.png}
+\caption{+/- Score}
+\end{subfigure}%
+\begin{subfigure}[b]{.45\textwidth}
+\centering
+\includegraphics[width=0.95\textwidth]{../fgoals_pts.png}
+\caption{Field Goals Scored}
+\end{subfigure}%
+}\\
+\caption{More features plotted to see if they are correlated to  the number of points scored.}
+\end{figure}
+
+
+
+After visualising the correlation between the features and the target variable, the feature selection methods outlined in the previous chapter were applied to the dataset. After applying these methods, the final subset of features will consist of those which best forecast the points scored.
+
+\subsection{Results using Select K Best}
+
+The datasets of each players statistics were subjected to the Select K Best Algorithm where the $k$ most correlated features with points scored using the chi-squared test was selected. The question that arises when using this algorithm is how many features should we select? This is explored more in the upcoming chapters, however the general logic of combatting this issue was increasing the value of $k$, applying the $k$ number of features to the model and recording the RMSE. If by adding more features, the RMSE for the training and test data increases, then the number of features will be reduced. After applying the Select K Best to all player datasets, the most correlated feature was number of games played, followed by points scored from the previous 3 games. The next two features selected was the Game Score and the Field Goals attempted from the previous game.
+
+\subsection{Results Using the Extra-Tree Classifier}
+
+The results obtained when selecting the most relevant features using the Extra-Trees classifier was extremely similar to the features obtained using the SelectKBest algorithm. For most players, the features which were highly correlated with points scored for certain games were the number of games played, the players GameScore and the previous games played. However, due to the randomised nature of the extra trees classifier, on a few iterations of the algorithm, one of the highly correlated features for certain players consisted of the players plus-minus (+/-) from the previous game and the opponent they were currently playing. Examples of these are shown in the figures below. As a result, these features were also experimented with and applied to the machine learning models in order to see whether they yielded more accurate results.
+
+
+
+\begin{figure} [h!]
+ \captionsetup{justification=centering}
+\makebox[\linewidth][c]{%
+\begin{subfigure}[b]{.55\textwidth}
+\centering
+\includegraphics[width=0.85\textwidth]{etc1.png}
+\caption{One iteration of Extra-Trees Classifier}
+\end{subfigure}%
+\begin{subfigure}[b]{.55\textwidth}
+\centering
+\includegraphics[width=0.85\textwidth]{etc2.png}
+\caption{Another iteration of Extra-Trees Classifier}
+\end{subfigure}%
+}\\
+\caption{The bar charts show two different iterations of the extra-tree classifier for one player. When attempting to choose the 4 most correlated features, some features were selected in one iteration and not selected in another. As a result, the models were applied with both sets of features to see which one resulted in the lowest RMSE}
+\end{figure}
+
+After the relevent features had been selected, the machine learning models outlined in Chapter 1.6 were then trained and tested. The next chapter entails the results of this investigation:
+
+\subsection{Machine Learning Models - Technical Background and Application} 
 
 % MAYBE PUT ML ALGOS AFTER INTRODUCING THE DATA SET + FEATURES STUFF
 \subsection{Technical Background}
@@ -391,18 +524,6 @@ In order to establish a linear relationship between $y$ and $\textbf{X}$ the wei
 
 Multivariable Kernel Ridge Regression is a simple extension of its single feature counterpart. Additionally, like Multiple linear regression there is or than one explanatory variable describing the target variable. 
 
- \subsubsection{Training and Test Data}
-Machine learning models are initially fit on a training dataset. The training data consists of a set of explanatory variables and the respective target variables. The model essentially learns from this data and fits its parameters to the training data. After the model is trained, its performance is assessed using a test dataset. If the models performance of the training data is is similar to that of the test data.
-
-\subsubsection{Overfitting}
-When attempting to fit a machine learning model to data, it is important that overfitting is avoided. Overfitting occurs when the machine learning algorithm attempts to learn the noise within the dataset as well as attempting to learn the signal presented in the dataset. Noise in a dataset refers to the randomness within a dataset and signal refers to the underlying pattern in the dataset that wish to learn.One approach of detecting overfitting when learning is to plot the validation error of the training data and the test data. If the validation error begins to increase for the test data while decreasing for the training data then the model has most likely over fitted the training data. 
-
-      \begin{figure}[!htb]
-      \captionsetup{justification=centering}
-        \center{\includegraphics[width=0.6\textwidth]
-        {overfitpng.png}}
-        \caption{\label{fig:my-label} A visualisation of overfitting. The red line represents the error of the testing data whereas the blue line represents the error. If there is an attempt to completely minimise the training data's error, then the model will become less flexible when attempting to predict future data points, resulting in an increase in the testing data's error. }
-      \end{figure}
 
 \subsubsection{Root Mean Squared Error}
 This investigation will use the Root Mean Squared Error (RMSE) quantify the error in each model. RMSE is that standard deviation between the values predicted by a machine learning model and the values observed.
@@ -414,117 +535,56 @@ In order to check whether a model has over fit or underfit the data, the RMSE fr
 Additionally, the RMSE can be used to compare the efficacy between models. Models with a lower RMSE compared to others imply that they're better at forecasting the trajectory of player points per game compared to models which score a higher RMSE.
 
 
-
 \newpage
-
-\section{Methodology and Implementation}
-
-After data was collected for each player, the data was placed in an array and preprocessed. Certain games were removed in order to avoid the data from being skewed. For example, if a player had played only a small number of minutes of a game due to unforeseen circumstances such as obtaining an injury, it would be removed from the dataset. Player form was also added to the array. It was decided that the points scored per game over a certain number of games were added. Furthermore opponent difficulty was also added to the array using the defensive rating metric provided by the NBA.
-
-Scatter plots depicting the points scored over games played were then made in order to visualise the relationship between these two variables before they were trained by the machine learning models.The figures also show the Least Squares Regression plot of two of the players in the dataset. Figures 6a) and 6b) are the scatter plots for two players, Joel Embiid and Nikola Jokic. As visualised in these figures the variance of points scored over a game-by-game basis is very large, thus potentially making the task of predicting the exact number of points scored by players in a particular game a very challenging task. However a general trend can be deduced from these graphs. There is a weakly positive correlation between number of games played and points, therefore it can hypothesised that for the upcoming season, this trend will continue. Some models in this investigation consist of one explanatory variable and a target variable, these include the Simple Moving Average model, Simple Linear Regression, Bayesian Linear Regression and Kernel Ridge Regression.
+\section{Meta-Testing}
 
 
-\begin{figure} [h!]
-      \captionsetup{justification=centering}
-\makebox[\linewidth][c]{%
-\begin{subfigure}[b]{.7\textwidth}
-\centering
-\includegraphics[width=1.05\textwidth]{../players/player24.png}
-\caption{Graph visualising Nikola Jokic's points scored}
-\end{subfigure}%
-\begin{subfigure}[b]{.7\textwidth}
-\centering
-\includegraphics[width=1.05\textwidth]{../players/player3.png}
-\caption{Graph visualising Aaron Gordon's points scored}
-\end{subfigure}%
-}\\
-\caption{The two Figures above visualise the relationship between the points scored of two players in the dataset over the course of their career's so far. The blue line shows the regression represents the linear relationship between the two variables and the shaded blue region represents one standard deviation.}
-\end{figure}
+\subsection{Picking the correct Regularisation parameter}
+
+For the kernelised methods, it was vital that the correct regularisation parameter was selected in order to prevent overfitting. When experimenting with different values, it was concluded that higher values of lambda resulted in an overfitting of the training data and thus resulted in a poor fit for the test data. However, on the other hand, if the regularisation parameter was too low, the models would under fit the training data and as a result the RMSE for the test data would be high. As a result the regularisation parameter was chosen by looping through different values, and choosing the value which resulted in the lowest RMSE for the training and testing data. The graph below show the testing data?s RMSE for single feature kernel regression and multi feature kernel regression with varying values of lambda. 
+
+      \begin{figure}[!htb]
+        \centerline{\includegraphics[width=0.7\textwidth]
+        {../errvals.png}}
+        \caption{\label{fig:my-label} The RMSE of the testing data for Kernel Ridge Regression with different regularisation values}
+      \end{figure}
+
+
+It can be seen in Figure 13 that there is a fall in the RMSE as the regularisation parameter increases, but as the regularisation parameter rises past a certain value, the RMSE begins to increase suggesting that the model has overfit the training data.
 
 
 
-\subsection{Feature Selection}
+\subsection{Choosing Correct window for form}
 
-Feature selection is required for the models which use multiple features. Using more features may allow us to explain the target variable better and produce more accurate results when forecasting points per game.  Pair plots were produced to see if there was a correlation between a feature and the target variable. 
+As stated earlier, when attempting to forecast the points scored from a game, one of the features was player form. In order to capture player form the points scored from a ?window? of games were included. However choosing the number of games to use in this window proved to be a challenging task. The method to combat was to vary the window size and see which window size would result in the lowest average RMSE. In other words, the number of games used to explain player performance were experimented with. The chart below depicts the average RMSE for the multivariable models when different sized windows were used. 
 
-As stated earlier the features used to predict the points scored in future games consist of the box score statistics of the previous game, as well as the current opponent for that particular game. Examples plots of some of the features for Nikola Jokic can be seen below. The results when visualising the correlation between the features and the target variable suggest that there is no correlation between the points scored and the opponent difficulty, explaining that that the number of points scored for a player is independent of opponent. Additionally the same results can be concluded for the plus-minus (+/-) statistic. However, other features such as field goal attempts (FGA), minutes played (MP) and a players GameScore (GmSc) present weakly positive correlation. This would indicate that these features aid in forecasting a players points per game. 
+\vspace{5mm}
+\begin{table}[h!]
+\captionsetup{justification=centering}
+\begin{center}
+\begin{tabular}{ |c|c|} 
+ \hline
+     \textbf{Model} & \textbf{Mean RMSE}\\ 
+ \hline
+ Simple Moving Average  & 3.80\\ 
+ \hline
+ Simple Linear Regression & 3.13\\ 
+ \hline
+ Bayesian Linear Regression  & 3.73 \\
+ \hline
+ Kernel Ridge Regression  & 2.86\\
+ \hline
+ Multiple Linear Regression& 3.13\\
+ \hline
+ Multivariable Kernel Ridge Regression  & 2.90\\
+ \hline
+\end{tabular}
+\end{center}
+\caption{The different RMSE values when using different window sizes}
+\end{table}
+\vspace{5mm}
 
-
-\begin{figure} [h!]
-\makebox[\linewidth][c]{%
-\begin{subfigure}[b]{.45\textwidth}
-\centering
-\includegraphics[width=0.95\textwidth]{../mp_pts.png}
-\caption{Minutes Played}
-\end{subfigure}%
-\begin{subfigure}[b]{.45\textwidth}
-\centering
-\includegraphics[width=0.95\textwidth]{../fga_pts.png}
-\caption{Field Goals Attempted}
-\end{subfigure}%
-\begin{subfigure}[b]{.45\textwidth}
-\centering
-\includegraphics[width=0.95\textwidth]{../gmsc_pts.png}
-\caption{GameScore}
-\end{subfigure}%
-}\\
-\caption{The Figures above visualise the relationship between points scored in a game and specific stats from the prior game. This was done to see if there was a positive correlation between these features and the target variable. The Figures shown are taken from one player in the dataset }
-\end{figure}
-
-
-\begin{figure} [h!]
-\makebox[\linewidth][c]{%
-\begin{subfigure}[b]{.45\textwidth}
-\centering
-\includegraphics[width=0.95\textwidth]{../opp.png}
-\caption{Opponent Difficulty}
-\end{subfigure}%
-\begin{subfigure}[b]{.45\textwidth}
-\centering
-\includegraphics[width=0.95\textwidth]{../pminus_pts.png}
-\caption{+/- Score}
-\end{subfigure}%
-\begin{subfigure}[b]{.45\textwidth}
-\centering
-\includegraphics[width=0.95\textwidth]{../fgoals_pts.png}
-\caption{Field Goals Scored}
-\end{subfigure}%
-}\\
-\caption{More features plotted to see if they are correlated to  the number of points scored.}
-\end{figure}
-
-
-
-After visualising the correlation between the features and the target variable, the feature selection methods outlined in the previous chapter were applied to the dataset. After applying these methods, the final subset of features will consist of those which best forecast the points scored.
-
-\subsection{Results using Select K Best}
-
-The datasets of each players statistics were subjected to the Select K Best Algorithm where the $k$ most correlated features with points scored using the chi-squared test was selected. The question that arises when using this algorithm is how many features should we select? This is explored more in the upcoming chapters, however the general logic of combatting this issue was increasing the value of $k$, applying the $k$ number of features to the model and recording the RMSE. If by adding more features, the RMSE for the training and test data increases, then the number of features will be reduced. After applying the Select K Best to all player datasets, the most correlated feature was number of games played, followed by points scored from the previous 3 games. The next two features selected was the Game Score and the Field Goals attempted from the previous game.
-
-\subsection{Results Using the Extra-Tree Classifier}
-
-The results obtained when selecting the most relevant features using the Extra-Trees classifier was extremely similar to the features obtained using the SelectKBest algorithm. For most players, the features which were highly correlated with points scored for certain games were the number of games played, the players GameScore and the previous games played. However, due to the randomised nature of the extra trees classifier, on a few iterations of the algorithm, one of the highly correlated features for certain players consisted of the players plus-minus (+/-) from the previous game and the opponent they were currently playing. Examples of these are shown in the figures below. As a result, these features were also experimented with and applied to the machine learning models in order to see whether they yielded more accurate results.
-
-
-
-\begin{figure} [h!]
- \captionsetup{justification=centering}
-\makebox[\linewidth][c]{%
-\begin{subfigure}[b]{.55\textwidth}
-\centering
-\includegraphics[width=0.85\textwidth]{etc1.png}
-\caption{One iteration of Extra-Trees Classifier}
-\end{subfigure}%
-\begin{subfigure}[b]{.55\textwidth}
-\centering
-\includegraphics[width=0.85\textwidth]{etc2.png}
-\caption{Another iteration of Extra-Trees Classifier}
-\end{subfigure}%
-}\\
-\caption{The bar charts show two different iterations of the extra-tree classifier for one player. When attempting to choose the 4 most correlated features, some features were selected in one iteration and not selected in another. As a result, the models were applied with both sets of features to see which one resulted in the lowest RMSE}
-\end{figure}
-
-After the relevent features had been selected, the machine learning models outlined in Chapter 1.6 were then trained and tested. The next chapter entails the results of this investigation: 
+This approach seemed the most logical as the previous number of games which resulted in the lowest average RMSE would mean that it is more accurate at forecasting the points scored for the next game.
 
 \newpage
 
@@ -714,53 +774,6 @@ As stated before, avoiding overfitting is key when attempting to forecast future
 \caption{Comparing the RMSE of the training data and the testing data for every model}
 \end{table}
 \vspace{5mm}
-
-\subsubsection{Picking the correct Regularisation parameter}
-
-For the kernelised methods, it was vital that the correct regularisation parameter was selected in order to prevent overfitting. When experimenting with different values, it was concluded that higher values of lambda resulted in an overfitting of the training data and thus resulted in a poor fit for the test data. However, on the other hand, if the regularisation parameter was too low, the models would under fit the training data and as a result the RMSE for the test data would be high. As a result the regularisation parameter was chosen by looping through different values, and choosing the value which resulted in the lowest RMSE for the training and testing data. The graph below show the testing data?s RMSE for single feature kernel regression and multi feature kernel regression with varying values of lambda. 
-
-      \begin{figure}[!htb]
-        \centerline{\includegraphics[width=0.7\textwidth]
-        {../errvals.png}}
-        \caption{\label{fig:my-label} The RMSE of the testing data for Kernel Ridge Regression with different regularisation values}
-      \end{figure}
-
-
-It can be seen in Figure 13 that there is a fall in the RMSE as the regularisation parameter increases, but as the regularisation parameter rises past a certain value, the RMSE begins to increase suggesting that the model has overfit the training data.
-
-
-
-\subsection{Choosing Correct window for form}
-
-As stated earlier, when attempting to forecast the points scored from a game, one of the features was player form. In order to capture player form the points scored from a ?window? of games were included. However choosing the number of games to use in this window proved to be a challenging task. The method to combat was to vary the window size and see which window size would result in the lowest average RMSE. In other words, the number of games used to explain player performance were experimented with. The chart below depicts the average RMSE for the multivariable models when different sized windows were used. 
-
-\vspace{5mm}
-\begin{table}[h!]
-\captionsetup{justification=centering}
-\begin{center}
-\begin{tabular}{ |c|c|} 
- \hline
-     \textbf{Model} & \textbf{Mean RMSE}\\ 
- \hline
- Simple Moving Average  & 3.80\\ 
- \hline
- Simple Linear Regression & 3.13\\ 
- \hline
- Bayesian Linear Regression  & 3.73 \\
- \hline
- Kernel Ridge Regression  & 2.86\\
- \hline
- Multiple Linear Regression& 3.13\\
- \hline
- Multivariable Kernel Ridge Regression  & 2.90\\
- \hline
-\end{tabular}
-\end{center}
-\caption{The different RMSE values when using different window sizes}
-\end{table}
-\vspace{5mm}
-
-This approach seemed the most logical as the previous number of games which resulted in the lowest average RMSE would mean that it is more accurate at forecasting the points scored for the next game.
 
 \newpage
 \section{Conclusions and Future Work}

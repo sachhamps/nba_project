@@ -7,60 +7,63 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.1}Introduction}{2}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.2}Project Aim and Motivation}{2}}
 \@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces An Example of an NBA Box Score showing the stats of the Oklahoma City Thunder players who started the game\relax }}{2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.3}Existing Literature}{4}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {1.3.1}ARIMA model Time Series Player Data}{4}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {1.3.2}Weibull-Gamma Statistical Model}{4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.4}The Dataset}{5}}
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Table consisting of all the players in the dataset\relax }}{6}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {1.4.1}Overview of the Features}{6}}
-\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Table explaining the box score stats\relax }}{6}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.5}Feature Selection Methods}{7}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {1.5.1}SelectKBest Algorithm}{7}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {1.5.2}Feature Importance Using the Extra-Trees Classifier}{7}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.6}Technical Background}{7}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {1.6.1}Simple Moving Average}{7}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {1.6.2}Simple Linear Regression}{8}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {1.6.3}Bayesian Linear Regression}{8}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces An example of Simple Linear Regression. The magenta line in Figure 1b) visualises the linear relationship between two variables. It can be seen that the two variables have a positive correlation\relax }}{9}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {1.6.4}Kernel Ridge Regression}{9}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Different values of $\lambda $\relax }}{10}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces By applying a basis function, the data points are mapped from a 1-dimensional feature space to a 2-dimensional feature space, where it can be linearly separated\relax }}{10}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.3}Introduction to Machine Learning Models}{4}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {1.3.1}Features and Feature Selection Methods}{4}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {1.3.2}Training and Test Data}{4}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {1.3.3}Overfitting}{4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces  A visualisation of overfitting. The red line represents the error of the testing data whereas the blue line represents the error. If there is an attempt to completely minimise the training data's error, then the model will become less flexible when attempting to predict future data points, resulting in an increase in the testing data's error. \relax }}{5}}
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{fig:my-label}{{3}{10}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces The relationship between the two variables are not linear, therefore, attempting to use a linear regression would result in a poor fit of the data observed in b). Kernel ridge regression produces a non-linear curve which better fits the relationship between the two variables, seen in c)\relax }}{11}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {1.6.5}Multiple Linear Regression and Multivariable Kernel Ridge Regression}{11}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {1.6.6}Training and Test Data}{12}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {1.6.7}Overfitting}{12}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces  A visualisation of overfitting. The red line represents the error of the testing data whereas the blue line represents the error. If there is an attempt to completely minimise the training data's error, then the model will become less flexible when attempting to predict future data points, resulting in an increase in the testing data's error. \relax }}{12}}
-\newlabel{fig:my-label}{{5}{12}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {1.6.8}Root Mean Squared Error}{13}}
-\@writefile{toc}{\contentsline {section}{\numberline {2}Methodology and Implementation}{14}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces The two Figures above visualise the relationship between the points scored of two players in the dataset over the course of their career's so far. The blue line shows the regression represents the linear relationship between the two variables and the shaded blue region represents one standard deviation.\relax }}{14}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Feature Selection}{15}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces The Figures above visualise the relationship between points scored in a game and specific stats from the prior game. This was done to see if there was a positive correlation between these features and the target variable. The Figures shown are taken from one player in the dataset \relax }}{15}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces More features plotted to see if they are correlated to the number of points scored.\relax }}{15}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Results using Select K Best}{16}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Results Using the Extra-Tree Classifier}{16}}
-\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces The bar charts show two different iterations of the extra-tree classifier for one player. When attempting to choose the 4 most correlated features, some features were selected in one iteration and not selected in another. As a result, the models were applied with both sets of features to see which one resulted in the lowest RMSE\relax }}{16}}
-\@writefile{toc}{\contentsline {section}{\numberline {3}Results}{18}}
-\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Results when attempting to forecast the points scored for every player on a game by game basis\relax }}{18}}
-\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Results when attempting to forecast season average points per game in the 18/19 season\relax }}{18}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Simple Moving Average}{18}}
-\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces These Figures show the results of the SMA model. The blue data points represents the training data points. The orange line depicts the prediction of the SMA model. The orange data points are the points actually scored by the players in the 18/19 season\relax }}{19}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Simple and Bayesian Linear Regression}{19}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Kernel Ridge Regression}{19}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Multivariable Linear Regression and Kernel Ridge Regression}{19}}
-\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces These Figures show the results of the simple linear regression model. The blue data points represents the training data points. The blue line depicts the best fitting line of the training data and the orange line is the predicted points scored for every game in the 2018/19 season. The orange data points are the points actually scored by the players in the 18/19 season\relax }}{20}}
-\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces The Figures show the training data points and the forecasted plots for Nikola Jokic and Joel Embiid.\relax }}{20}}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Discussion and Analysis}{22}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Game by Game and General Trend Analysis}{22}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Comparing the Models}{22}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Limitations}{23}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Overfitting Problem}{23}}
-\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Comparing the RMSE of the training data and the testing data for every model\relax }}{24}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.1}Picking the correct Regularisation parameter}{24}}
-\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces  The RMSE of the testing data for Kernel Ridge Regression with different regularisation values\relax }}{24}}
-\newlabel{fig:my-label}{{13}{24}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Choosing Correct window for form}{25}}
-\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces The different RMSE values when using different window sizes\relax }}{25}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Conclusions and Future Work}{26}}
+\newlabel{fig:my-label}{{1}{5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.4}Existing Literature}{5}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {1.4.1}ARIMA model Time Series Player Data}{5}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {1.4.2}Weibull-Gamma Statistical Model}{6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.5}The Dataset}{7}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Table consisting of all the players in the dataset\relax }}{7}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {1.5.1}Overview of the Features}{7}}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Table explaining the box score stats\relax }}{8}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.6}SelectKBest Algorithm}{8}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.7}Feature Importance Using the Extra-Trees Classifier}{8}}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Methodology and Implementation}{9}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces The two Figures above visualise the relationship between the points scored of two players in the dataset over the course of their career's so far. The blue line shows the regression represents the linear relationship between the two variables and the shaded blue region represents one standard deviation.\relax }}{9}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Feature Selection}{10}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces The Figures above visualise the relationship between points scored in a game and specific stats from the prior game. This was done to see if there was a positive correlation between these features and the target variable. The Figures shown are taken from one player in the dataset \relax }}{10}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces More features plotted to see if they are correlated to the number of points scored.\relax }}{10}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Results using Select K Best}{11}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Results Using the Extra-Tree Classifier}{11}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces The bar charts show two different iterations of the extra-tree classifier for one player. When attempting to choose the 4 most correlated features, some features were selected in one iteration and not selected in another. As a result, the models were applied with both sets of features to see which one resulted in the lowest RMSE\relax }}{11}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Machine Learning Models - Technical Background and Application}{12}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.5}Technical Background}{12}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.5.1}Simple Moving Average}{12}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.5.2}Simple Linear Regression}{12}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces An example of Simple Linear Regression. The magenta line in Figure 1b) visualises the linear relationship between two variables. It can be seen that the two variables have a positive correlation\relax }}{13}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.5.3}Bayesian Linear Regression}{13}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.5.4}Kernel Ridge Regression}{14}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Different values of $\lambda $\relax }}{15}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces By applying a basis function, the data points are mapped from a 1-dimensional feature space to a 2-dimensional feature space, where it can be linearly separated\relax }}{15}}
+\newlabel{fig:my-label}{{8}{15}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces The relationship between the two variables are not linear, therefore, attempting to use a linear regression would result in a poor fit of the data observed in b). Kernel ridge regression produces a non-linear curve which better fits the relationship between the two variables, seen in c)\relax }}{15}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.5.5}Multiple Linear Regression and Multivariable Kernel Ridge Regression}{16}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.5.6}Root Mean Squared Error}{16}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Meta-Testing}{17}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Picking the correct Regularisation parameter}{17}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces  The RMSE of the testing data for Kernel Ridge Regression with different regularisation values\relax }}{17}}
+\newlabel{fig:my-label}{{10}{17}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Choosing Correct window for form}{17}}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces The different RMSE values when using different window sizes\relax }}{18}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Results}{19}}
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Results when attempting to forecast the points scored for every player on a game by game basis\relax }}{19}}
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Results when attempting to forecast season average points per game in the 18/19 season\relax }}{19}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Simple Moving Average}{19}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces These Figures show the results of the SMA model. The blue data points represents the training data points. The orange line depicts the prediction of the SMA model. The orange data points are the points actually scored by the players in the 18/19 season\relax }}{20}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Simple and Bayesian Linear Regression}{20}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Kernel Ridge Regression}{20}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Multivariable Linear Regression and Kernel Ridge Regression}{20}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces These Figures show the results of the simple linear regression model. The blue data points represents the training data points. The blue line depicts the best fitting line of the training data and the orange line is the predicted points scored for every game in the 2018/19 season. The orange data points are the points actually scored by the players in the 18/19 season\relax }}{21}}
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces The Figures show the training data points and the forecasted plots for Nikola Jokic and Joel Embiid.\relax }}{21}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Discussion and Analysis}{23}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Game by Game and General Trend Analysis}{23}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Comparing the Models}{23}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Limitations}{24}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Overfitting Problem}{24}}
+\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces Comparing the RMSE of the training data and the testing data for every model\relax }}{25}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Conclusions and Future Work}{26}}
