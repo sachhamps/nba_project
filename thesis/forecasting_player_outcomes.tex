@@ -27,10 +27,10 @@
 \tableofcontents
 \newpage
 
-\section{Background}
+\section{Introduction}
 \vspace{6mm}
 
-\subsection{Introduction}
+\subsection{Introduction to the NBA}
 
 The National Basketball Association (NBA) is a professional basketball league in North America consisting of 30 teams (also called franchises) where each team has of a squad of players called a roster. The teams are evenly split into two `conferences' - the Western Conference and the Eastern Conference. Each team plays 82 games throughout the regular season where they are ranked based off of their win-loss (W-L) record. The top 8 from each conference will then compete in the `playoffs' in an attempt to win the NBA championship. Each franchise is seeded based off of their win-loss record during the regular season and placed in a tournament bracket. Teams with a better win-loss record at the end of the regular season get a higher seeding and are more likely to encounter teams with a lower seeding in the playoffs. In each playoff  round, teams play a best-of-seven game series where the first team to win four games moves into the next round of the playoffs whereas the other team is eliminated. The championship series occurs when the final two teams left in the playoffs play one another in a seven game series. The team which wins this series are the champions of the NBA season.
 
@@ -76,9 +76,9 @@ and
 
 The contributions of this paper can be summarised as follows:
 \begin{itemize}
-    \item Selecting the best features for the predictive variable - points scored per game
-    \item Outlining, analysing and comparing the different machine learning algorithms used.
-    \item Change bullet points
+    \item Introducing the range of features available for NBA franchises to use when predicting the target variable - points scored
+    \item Selecting the features which best explain points scored, and training machine learning models using these features.
+    \item Outlining, analysing and comparing the different machine learning models that can be used to forecast points scored, and concluding which model achieves the aims in this investigation.
 \end{itemize}
 %More emphasis on the TIME SERIES ELEMENT!
 Essentially, the project aims to solve a \textbf{time series problem} where outcomes in the future are predicted using information given in the present. \textbf{Is it possible to accurately predict the points scored in future games based off the trend of past games played?}
@@ -93,7 +93,12 @@ Another motivation for exploring this project is the drastic increase in the spo
 
  Furthermore the sports betting market is so large solely because it is challenging to predict the outcomes of sporting events. As a result, another motivation for exploring this project is to discover a more accurate method of predicting player outcomes to better inform sports betting enthusiasts. 
  
- \subsection{Introduction to Machine Learning Models}
+
+\newpage
+
+\section{Background}
+
+\subsection{Introduction to Machine Learning Models}
 
 This investigation will explore a range of machine learning models in order to find the most accurate when forecasting points per game for players. A machine learning model is a mathematical representation of a real-world process; in the case of this investigation, the machine learning algorithms will attempt to mathematically model points scored in future games. In order to generate a model, necessary features will have to be selected and training data will have to be provided such that the machine learning model can learn.
 
@@ -117,42 +122,9 @@ When attempting to fit a machine learning model to data, it is important that ov
       \end{figure}
 
 
-
-
-\subsection{Existing Literature}
- 
-\subsubsection{ARIMA model Time Series Player Data}
-
-%NEED TO PROOF-READ + MAKE SURE IT MAKES SENSE - potensh add mathematical formulae
-This paper explores game-by-game data of one player, Derrick Rose, in order to forecast the number of points scored in upcoming games. More specifically this paper attempts to find the best $ARIMA$ model that best fits Derrick Rose's previous statistics in order to accurately predict the points scored in Rose's future games. - DeLay et al 2016.
-
-The paper uses data from the 2014-15 regular season and as a result the $ARIMA$ models used  were trained using only 51 games of the season (Rose only played 51 games of the regular season, the other 31 were missed due to injury).
-
-$ARIMA(p,d,q)$ stands for Autoregressive Integrated Moving Average and is commonly used in time series analysis where the data displays non-stationary properties, that is the mean and variance changes over time. This model is a generalisation of the $ARMA(p,q)$ model, which combines the autoregressive model with the moving average model. The autoregressive ($AR(p)$) part of the model learns from the previous $p$ games played and uses them as inputs for a regression model to predict the points scored in future games. The moving average ($MA(q)$) model essentially takes the average of the previous $q$ data points. The `integrated' part of the $ARIMA(p,d,q)$ model consists of finding the differences between $d$ data points in order to remove the non-stationary element.
-
-The motivation behind using the $ARIMA$ model is that DeLay assumed there would not be a seasonal trend over the course of the year and as a result the mean and variance of points scored over the course of the season would not change. Another assumption made was that the forecasted points scored by Rose in future games would be similar compared to his previous games implying that there would be no drastic improvement or deterioration in points scored by Rose in the near future.
-
-The results produced in this paper suggest that an an integrated moving average of order 1 ($IMA(1,1)$) best fit Derrick Rose's training data, however the forecasted data was slightly inconclusive. The predicted data points for future games converged to the average of the initial 51 data points. This was potentially due to the fact that the training data set was too small. DeLay believed that over time and given more data the model would predict more fluctuating data points before averaging out at at slower pace. 
-
-%DOESNT MAKE MUCH SENSE RN, NEEDS A PROOF READ BADLY!!
-
-\subsubsection{Weibull-Gamma Statistical Model}
-
-Hwang et al (2012) attempted to forecast the trend of a small subset (7) of player's careers using a different statistical method, namely the Weibull-Gamma model. More specifically, Hwang attempted to forecast the average points per game (PPG) scored by players over the upcoming seasons. The subset of players were all free agents, meaning they were currently not under contract with any particular team in the NBA. This paper aimed to aid NBA franchises such that they could obtain a degree a foresight when deciding whether sign these free agents.
-
-
-Before Hwang decided to use average PPG over a season as a method for evaluating player performance an array of different features were experimented with to find an accurate metric for player performance. Hwang's reasoning for using the average PPG over the course of a season was because it is a very commonly used statistic. Training data consisted of seven different players, the target variable was the average PPG for a season and the dependent variable was the season number. 
-
-The statistical model used was a mixture of the Weibull-Hazard and the Gamma function. The motivation behind using this model is that the assumption of performance over time is included. In other words, Hwang assumes that player performance will begin to decline as the players partake in more NBA seasons and therefore he is expecting the average points scored per game to decline as more seasons occur.
-
-The results achieved by Hwang after one season of predicting the average PPG for the season upcoming (2010-11) season were fairly encouraging. The difference in points never exceeded more than 2, proving to be a fairly accurate model.
-
-A key difference between Hwang's thesis and the objective in this thesis is that Hwang does not attempt to predict the points scored for individual games throughout a season, only the average points scored per game over the entire season, for multiple seasons in the future. Therefore it can be deduced that this study was focused more on forecasting the general trend of player careers, attempting to decipher the effect of age on a players career rather than attempting to predict the points per game of a player against a particular team
-
-\subsection{The Dataset}
-
 %GO THROUGH THE  PROCESS OF ML: DATA COLLECTION AND PREPROCESSING ->TRAINING -> TESTING -> DISCUSSION AND ANALYSIS
 
+\subsection{The Dataset}
 This investigation will focus on a specific subset of players, specifically players from the 2014 Draft Class. The dataset consists of 27 players and their box score statistics from every game over the previous three seasons. The players and the references to the statistics are shown below. The incentive for choosing these players was:
 \begin{itemize}
     \item These players are of similar ages and they have had the same number of years of experience in the NBA.
@@ -188,20 +160,23 @@ Marcus Smart & Julius Randle & Nik Stauskus & Noah Vonleh & Elfrid Payton \\
  \subsubsection{Overview of the Features}
 The box scores from every game over the past 3 seasons  were scraped from `Basketball Reference'. Some of the stats recorded could potentially be used a features for forecasting points per game for future games. The features (and the target variable) provided are summarised in the following table. 
 
-\vspace{5mm}
 \begin{table} [h!]
 \begin{center}
 \begin{tabular}{ |c|c| } 
  \hline
-MP & Minutes Played  \\ 
+MP & The number of Minutes Played in the game\\ 
  \hline
-FG & Field Goals scored \\ 
+FG & The number of field goals (baskets) scored \\ 
  \hline
-FG\% & Field Goal percentage\\ 
+ FGA & The number of field goals (baskets) attempted \\ 
  \hline
-3P & Number of 3 point field goals\\
+FG\% & Percentage of field goals scored\\ 
  \hline
- 3P\% & 3 point field goal percentage\\
+3P & Number of 3 point field goals scored \\
+ \hline
+ 3PA & Number of 3 point field goals attempted \\ 
+ \hline
+ 3P\% & Percentage of 3 point field goals scored\\
 \hline
 FT & Number of free throws made\\
 \hline
@@ -238,24 +213,170 @@ GmSc & A score which determines how important a player was in a win\\
 \vspace{5mm}
 
 
-There are other factors which could determine the number of points scored by a player in a game which are not captured using just box score statistics. One of these factors is `player form'. This can often be hard to quantify, as there is not a statistic in basketball which quantifies how well a player is performing.  However, a potential way to include form would be use a rolling-window of points scored from previous games, and use this as a feature for predicting the points scored for the upcoming game.  Additionally, another main factor not included in box scores is opponent difficulty. The motivation for including opponent difficulty is that teams vary in defensive capabilities which could impact how many points a player scores in a game.
+There are other factors which could determine the number of points scored by a player in a game which are not captured using just box score statistics. One of these factors is \textbf{player form}. This can often be hard to quantify, as there is not a statistic in basketball which explains how well a player is performing.  However, a potential way to best represent form would be use a rolling-window of points scored from previous games and use this as a feature for predicting the points scored for the upcoming game.  Additionally, another main factor not included in box scores is \textbf{opponent difficulty}. The motivation for including opponent difficulty is that teams vary in defensive capabilities which could impact how many points a player scores in a game.
+\vspace{5mm}
 
-\subsection{SelectKBest Algorithm}
-The `SelectKBest' algorithm selects a subset of features of size $k$ which have the strongest relationship with the target variable. A wide range of statistical tests can be used to select these features. The statistical test produces a score for each feature, and the top $k$ features which have the highest score the features which have the strongest relationship with the target. For example, a common statistical test used for this algorithm is the chi-squared statistical test.  
+In summary, the collection of features explored in this investigation is summarised in Table 2, as well as player form and opponent difficulty. The next chapter explains how the most relevant features for predicting points per game were selected and also introduces the models used in this investigation.  
 
- \subsection{Feature Importance Using the Extra-Trees Classifier}
- The Extra-Trees Classifier is an algorithm which builds multiple decision trees at random using some of the observations from the training data and the some of the features present in the dataset. This classifier can be used to measure the relative importance of each feature on the predicted variable. The use that the Extra-Trees Classifier provides is that it can produce a `score' for every feature in the dataset, where the higher the score implies the more the correlated that feature is with the predicted variable.
+\subsection{Technical Background}
+The following section outlines the theory of the machine learning models used in this project:
+
+\subsubsection{Simple Moving Average}
+
+The moving average model is commonly used in time series data. The simple average model essentially uses the previous $n$ data points to forecast future data points by taking the unweighted mean of these $n$ points:
+\begin{equation}
+\bar{p}_{SMA} = \frac{p_{M} + p_{M-1} + ... + p_{M-(N-1)}} {n} 
+= \frac{1}{n} \sum_{i=0}^{n-1}p_{M-i}
+\end{equation}
+
+\subsubsection{Simple Linear Regression}
+
+Ordinary Least Squares (OLS) or Linear Regression is a linear approach to modelling the relationship between an explanatory variable and the target variable.  Given explanatory variable \(x\) and target variable \(y\), the linear relationship is defined as follows:
+\begin{equation}
+y(x,w) = w_{0} + w_{1}x
+\end{equation}
+\textbf{w} (the weight vector) encodes the relationship between the two variables. Simple linear regression attempts to best fit a line to a set of data points by finding values for \textbf{w} which minimises the sum of the squares of the vertical offsets of the points from the line. Essentially the aim is to minimise the following function:
+\begin{equation}
+L(x) = \sum_{i=0}^{n}(y_{i}-\textbf{w}^Tx_{i})^2
+\end{equation}
+Where $\textbf{w}^Tx_{i}$ is a point on the line  and \(y_i\) is the data point that is vertical offset from  $\textbf{w}^Tx_{i}$. In order to minimise this function the partial derivative of $L$ is taken and the following derivative is equated to 0. As a result, the following equations encode the values of \(w_{0}\) and \(w_{1}\) which best fit the data points:
+\begin{equation}
+w_{1} =\frac{\sum{}^{} (x_{i} - \bar{x})(y_{i} - \bar{y})}{\sum{}^{}(x_{i} - \bar{x})^2}
+\end{equation}
+\begin{equation}
+w_{0} = \bar{y} - w_{1}\bar{x}
+\end{equation}
+where $\bar{y}$ and $\bar{x}$  are the means of the $y$ values and $x$ values.
+
+\begin{figure} [h!]
+\captionsetup{justification=centering}
+\makebox[\linewidth][c]{%
+\begin{subfigure}[b]{.6\textwidth}
+\centering
+\includegraphics[width=0.95\textwidth]{scatterplt_ex.png}
+\caption{Data Points Plotted}
+\end{subfigure}%
+\begin{subfigure}[b]{.6\textwidth}
+\centering
+\includegraphics[width=0.95\textwidth]{linregscatterplt.png}
+\caption{Linear Relationship calculated}
+\end{subfigure}%
+}\\
+\caption{An example of Simple Linear Regression. The magenta line in Figure 1b) visualises the linear relationship between two variables. It can be seen that the two variables have a positive correlation}
+\end{figure}
+
+\subsubsection{Bayesian Linear Regression}
+Bayesian Linear Regression also formulates a linear relationship between the explanatory and target variables, however unlike OLS the relationship is based off a probability distribution rather than point estimates. In other words, the target value is not estimated to be a single value but it is drawn from a specific probability distribution. For this investigation, the weights will be sampled from a Gaussian distribution when computing the target values. The reasoning behind this stems from the Central Limit Theorem. This model uses Bayes Theorem to produce probability distribution for the target values - called the posterior. A probability encoding an existing or prior belief of the weights (also called parameters) is multiplied by the likelihood of the data points. It is then divided by a normalisation constant. The prior belief will be a Gaussian distribution, and due to conjugacy, the posterior will also follow a Gaussian distribution. 
+\begin{equation}
+ y \sim N(\textbf{w}^T\textbf{X}, \sigma^2\textbf{I})
+\end{equation}
+\begin{equation}
+P(\textbf{w}|y,\textbf{X}) = \frac{P(y|\textbf{X},\textbf{w})P(\textbf{w})}{P(y|\textbf{X})}
+\end{equation}
+
+\subsubsection{Kernel Ridge Regression}
+
+Kernelised Ridge Regression is a nonlinear approach for modelling the relationship between an explanatory variable and a target variable. It combines Ridge Regression with the `kernel trick'.
+
+Ridge Regression is similar to Least Squares Regression where a curve is best fitted to a set of data points through minimising a loss function specified by Equation (2). However, the major risk when attempting to fit a curve to data is overfitting. One simple method for avoiding overfitting is to include penalty term to \textbf{w} in the loss function. Subsequently the loss function becomes, 
+\begin{equation}
+L = \sum_{i=0}^{n}y_{i} - \textbf{w}^Tx_{i} + \lambda||\textbf{w}||^2
+\end{equation}
+$\lambda$ is the regularisation parameter. If $\lambda$ were to be zero, then the loss function function would be the same as the loss function for least squares.
+
+\begin{figure} [h!]
+\makebox[\linewidth][c]{%
+\begin{subfigure}[b]{.6\textwidth}
+\centering
+\includegraphics[width=0.95\textwidth]{scatterplt_ex.png}
+\caption{Data Points Plotted}
+\end{subfigure}%
+\begin{subfigure}[b]{.6\textwidth}
+\centering
+\includegraphics[width=0.95\textwidth]{linregscatterplt.png}
+\caption{Linear Relationship calculated}
+\end{subfigure}%
+}\\
+\caption{Different values of $\lambda$}
+\end{figure}
 
 
+In order to achieve a nonlinear curve a kernel function, $k(x,x')$ is applied to all input values. Kernel functions describe the inner product of two input values that are mapped to a different feature space $\mathcal{X} \rightarrow \mathcal{F}$: $k(x_{1},x_{2}) = \phi(x_{1})^T\phi(x_{2})$. The basis function $\phi(.)$ is unknown however it is not required as long as the mapped feature space is an inner product space; this is known as the kernel trick The idea behind using kernels is that when the inputs are mapped to a different feature space, they can be classified linearly as seen in Figure 3. Examples of kernel functions include the Radial Basis Function, the Polynomial Kernel and the  Fisher Kernel.
+
+      \begin{figure}[!htb]
+      \captionsetup{justification=centering}
+        \center{\includegraphics[width=0.6\textwidth]
+        {kerneltrick.png}}
+        \caption{\label{fig:my-label}By applying a basis function, the data points are mapped from a 1-dimensional feature space to a 2-dimensional feature space, where it can be linearly separated}
+      \end{figure}
+
+\subsubsection{Multiple Linear Regression and Multivariable Kernel Ridge Regression}
+Multiple Linear Regression models a relationship between more than one explanatory variable and a target variable by fitting a linear equation to the observed data:
+\begin{equation}
+y_{i} = w_{0} + w_{1}x_{i} + w_{2}x_{i} +  ... + w_{d}x_{i}
+\end{equation}
+A feature matrix consisting of the explanatory variables $\textbf{X}$ and a column vectors consisting of the target variable $y$ and weights $\textbf{w}$ can be represented as:
+\[
+\begin{bmatrix}
+	y_{1}\\
+	y_{2}\\
+	\vdots \\
+	y_{d} \\
+\end{bmatrix}
+= \begin{bmatrix}
+    x_{11} & x_{12} & x_{13} & \dots  & x_{1n} \\
+    x_{21} & x_{22} & x_{23} & \dots  & x_{2n} \\
+    \vdots & \vdots & \vdots & \ddots & \vdots \\
+    x_{d1} & x_{d2} & x_{d3} & \dots  & x_{dn}
+\end{bmatrix}
+\begin{bmatrix}
+	w_{1}\\
+	w_{2}\\
+	\vdots \\
+	w_{d} \\
+\end{bmatrix}
+\]
+In order to establish a linear relationship between $y$ and $\textbf{X}$ the weights are calculated using the least squares method akin to simple linear regression. Therefore the following loss function that needs to be minimised is $Xw -y^2$. The formula for finding the weights which minimises the loss function is
+\begin{equation}
+\textbf{w} = (\textbf{X}^T\textbf{X})^{-1}\textbf{X}^Ty
+\end{equation}
+
+\subsection{Existing Literature}
+ 
+\subsubsection{ARIMA model Time Series Player Data}
+
+%NEED TO PROOF-READ + MAKE SURE IT MAKES SENSE - potensh add mathematical formulae
+This paper explores game-by-game data of one player, Derrick Rose, in order to forecast the number of points scored in upcoming games. More specifically this paper attempts to find the best $ARIMA$ model that best fits Derrick Rose's previous statistics in order to accurately predict the points scored in Rose's future games. - DeLay et al 2016.
+
+The paper uses data from the 2014-15 regular season and as a result the $ARIMA$ models used  were trained using only 51 games of the season (Rose only played 51 games of the regular season, the other 31 were missed due to injury).
+
+$ARIMA(p,d,q)$ stands for Autoregressive Integrated Moving Average and is commonly used in time series analysis where the data displays non-stationary properties, that is the mean and variance changes over time. This model is a generalisation of the $ARMA(p,q)$ model, which combines the autoregressive model with the moving average model. The autoregressive ($AR(p)$) part of the model learns from the previous $p$ games played and uses them as inputs for a regression model to predict the points scored in future games. The moving average ($MA(q)$) model essentially takes the average of the previous $q$ data points. The `integrated' part of the $ARIMA(p,d,q)$ model consists of finding the differences between $d$ data points in order to remove the non-stationary element.
+
+The motivation behind using the $ARIMA$ model is that DeLay assumed there would not be a seasonal trend over the course of the year and as a result the mean and variance of points scored over the course of the season would not change. Another assumption made was that the forecasted points scored by Rose in future games would be similar compared to his previous games implying that there would be no drastic improvement or deterioration in points scored by Rose in the near future.
+
+The results produced in this paper suggest that an an integrated moving average of order 1 ($IMA(1,1)$) best fit Derrick Rose's training data, however the forecasted data was slightly inconclusive. The predicted data points for future games converged to the average of the initial 51 data points. This was potentially due to the fact that the training data set was too small. DeLay believed that over time and given more data the model would predict more fluctuating data points before averaging out at at slower pace. 
+
+%DOESNT MAKE MUCH SENSE RN, NEEDS A PROOF READ BADLY!!
+
+\subsubsection{Weibull-Gamma Statistical Model}
+
+Hwang et al (2012) attempted to forecast the trend of a small subset (7) of player's careers using a different statistical method, namely the Weibull-Gamma model. More specifically, Hwang attempted to forecast the average points per game (PPG) scored by players over the upcoming seasons. The subset of players were all free agents, meaning they were currently not under contract with any particular team in the NBA. This paper aimed to aid NBA franchises such that they could obtain a degree a foresight when deciding whether sign these free agents.
+
+
+Before Hwang decided to use average PPG over a season as a method for evaluating player performance an array of different features were experimented with to find an accurate metric for player performance. Hwang's reasoning for using the average PPG over the course of a season was because it is a very commonly used statistic. Training data consisted of seven different players, the target variable was the average PPG for a season and the dependent variable was the season number. 
+
+The statistical model used was a mixture of the Weibull-Hazard and the Gamma function. The motivation behind using this model is that the assumption of performance over time is included. In other words, Hwang assumes that player performance will begin to decline as the players partake in more NBA seasons and therefore he is expecting the average points scored per game to decline as more seasons occur.
+
+The results achieved by Hwang after one season of predicting the average PPG for the season upcoming (2010-11) season were fairly encouraging. The difference in points never exceeded more than 2, proving to be a fairly accurate model.
+
+A key difference between Hwang's thesis and the objective in this thesis is that Hwang does not attempt to predict the points scored for individual games throughout a season, only the average points scored per game over the entire season, for multiple seasons in the future. Therefore it can be deduced that this study was focused more on forecasting the general trend of player careers, attempting to decipher the effect of age on a players career rather than attempting to predict the points per game of a player against a particular team
 
 \newpage
 
-\section{Methodology and Implementation}
+\section{Application to the NBA Dataset}
+%change the word array to 20-dimensional vector
 
-After data was collected for each player, the data was placed in an array and preprocessed. Certain games were removed in order to avoid the data from being skewed. For example, if a player had played only a small number of minutes of a game due to unforeseen circumstances such as obtaining an injury, it would be removed from the dataset. Player form was also added to the array. It was decided that the points scored per game over a certain number of games were added. Furthermore opponent difficulty was also added to the array using the defensive rating metric provided by the NBA.
-
-Scatter plots depicting the points scored over games played were then made in order to visualise the relationship between these two variables before they were trained by the machine learning models.The figures also show the Least Squares Regression plot of two of the players in the dataset. Figures 6a) and 6b) are the scatter plots for two players, Joel Embiid and Nikola Jokic. As visualised in these figures the variance of points scored over a game-by-game basis is very large, thus potentially making the task of predicting the exact number of points scored by players in a particular game a very challenging task. However a general trend can be deduced from these graphs. There is a weakly positive correlation between number of games played and points, therefore it can hypothesised that for the upcoming season, this trend will continue. Some models in this investigation consist of one explanatory variable and a target variable, these include the Simple Moving Average model, Simple Linear Regression, Bayesian Linear Regression and Kernel Ridge Regression.
-
+Scatter plots depicting the points scored over games played were created in order to visualise the relationship between these two variables before they were trained by the machine learning models which only consist of one explanatory variable. Certain games were removed in order to avoid the data from being skewed. For example, if a player had played only a small number of minutes of a game due to unforeseen circumstances such as obtaining an injury, it was removed from the dataset. Figures 6a) and 6b) are the scatter plots for two players, Joel Embiid and Nikola Jokic. The Figures also show the Least Squares Regression plot of two of the players in the dataset. As visualised in these Figures the variance of points scored over a game-by-game basis is very large, thus potentially making the task of predicting the exact number of points scored by players in a particular game a very challenging task. However a general trend can be deduced from these graphs. There is a weakly positive correlation between number of games played and points, therefore it can hypothesised that for the upcoming season, this trend will continue. Some models in this investigation consist of one explanatory variable and a target variable, these include the Simple Moving Average model, Simple Linear Regression, Bayesian Linear Regression and Kernel Ridge Regression.
 
 \begin{figure} [h!]
       \captionsetup{justification=centering}
@@ -274,13 +395,16 @@ Scatter plots depicting the points scored over games played were then made in or
 \caption{The two Figures above visualise the relationship between the points scored of two players in the dataset over the course of their career's so far. The blue line shows the regression represents the linear relationship between the two variables and the shaded blue region represents one standard deviation.}
 \end{figure}
 
+The box scores were also collected for each player and the data was placed in an array for preprocessing.  Player form was also added to the array. It was decided that the points scored for the previous $n$ games would best resemble player form. Chapter 4.2 explains how the value of $n$ was chosen. Furthermore opponent difficulty was also added to the array using the defensive rating metric provided by the NBA. Every team in the NBA is given a defensive rating where the lower the rating implies the better the defence. These features were then subjected to features selection methods described in Chapters 3.2 and 3.3. A subset of the features which best describe the target variable were selected and trained on the machine learning models. In this investigation, there are two models which will use this subset of features: Multiple Linear Regression and Kernel Ridge Regression.
 
 
 \subsection{Feature Selection}
 
-Feature selection is required for the models which use multiple features. Using more features may allow us to explain the target variable better and produce more accurate results when forecasting points per game.  Pair plots were produced to see if there was a correlation between a feature and the target variable. 
+Feature selection is required for the models which use multiple features. Using more than one feature may allow us to explain the target variable better and produce more accurate results when forecasting points per game.  Pair plots were produced to see if there was a correlation between a feature and the target variable. 
 
-As stated earlier the features used to predict the points scored in future games consist of the box score statistics of the previous game, as well as the current opponent for that particular game. Examples plots of some of the features for Nikola Jokic can be seen below. The results when visualising the correlation between the features and the target variable suggest that there is no correlation between the points scored and the opponent difficulty, explaining that that the number of points scored for a player is independent of opponent. Additionally the same results can be concluded for the plus-minus (+/-) statistic. However, other features such as field goal attempts (FGA), minutes played (MP) and a players GameScore (GmSc) present weakly positive correlation. This would indicate that these features aid in forecasting a players points per game. 
+The statistics in box score from the previous game, player form and opponent difficulty summarise the features that are present in this this investigation. As stated earlier in this chapter,  the features which aid in explaining the target variable were selected and the other features were removed.
+
+Examples plots of some of the features for Nikola Jokic can be seen below. The results when visualising the correlation between the features and the target variable show that there is no correlation between the points scored and the opponent difficulty, implying that that the number of points scored for a player is independent of opponent. Additionally the same conclusion can be drawn for the plus-minus (+/-) statistic. However, other features such as field goal attempts (FGA), minutes played (MP) and a players GameScore (GmSc) present weakly positive correlation. This would indicate that these features may aid in forecasting a players points per game. 
 
 
 \begin{figure} [h!]
@@ -330,14 +454,16 @@ As stated earlier the features used to predict the points scored in future games
 
 After visualising the correlation between the features and the target variable, the feature selection methods outlined in the previous chapter were applied to the dataset. After applying these methods, the final subset of features will consist of those which best forecast the points scored.
 
-\subsection{Results using Select K Best}
+\subsection{SelectKBest Algorithm}
+The `SelectKBest' algorithm selects a subset of features of size $k$ which have the strongest relationship with the target variable. A wide range of statistical tests can be used to select these features. The statistical test produces a score for each feature, and the top $k$ features which have the highest score the features which have the strongest relationship with the target. A common statistical test used for this algorithm is the chi-squared statistical test.  
 
-The datasets of each players statistics were subjected to the Select K Best Algorithm where the $k$ most correlated features with points scored using the chi-squared test was selected. The question that arises when using this algorithm is how many features should we select? This is explored more in the upcoming chapters, however the general logic of combatting this issue was increasing the value of $k$, applying the $k$ number of features to the model and recording the RMSE. If by adding more features, the RMSE for the training and test data increases, then the number of features will be reduced. After applying the Select K Best to all player datasets, the most correlated feature was number of games played, followed by points scored from the previous 3 games. The next two features selected was the Game Score and the Field Goals attempted from the previous game.
+The datasets of each player's statistics were subjected to the Select K Best Algorithm where the $k$ most correlated features with points scored using the chi-squared test was selected. The question that arises when using this algorithm is how many features should we select? This is explored more in the upcoming chapters, however the general logic of combatting this issue was increasing the value of $k$, applying the $k$ number of features to the model and recording the RMSE. If by adding more features, the RMSE for the training and test data increases, then the number of features will be reduced. After applying the SelectKBest algorithm to all player datasets, the most correlated feature was number of \textbf{games played}, followed by \textbf{points scored from the previous game}. The next two features selected was the \textbf{game score} and the number of \textbf{field goals attempted from the previous game}.
 
-\subsection{Results Using the Extra-Tree Classifier}
 
-The results obtained when selecting the most relevant features using the Extra-Trees classifier was extremely similar to the features obtained using the SelectKBest algorithm. For most players, the features which were highly correlated with points scored for certain games were the number of games played, the players GameScore and the previous games played. However, due to the randomised nature of the extra trees classifier, on a few iterations of the algorithm, one of the highly correlated features for certain players consisted of the players plus-minus (+/-) from the previous game and the opponent they were currently playing. Examples of these are shown in the figures below. As a result, these features were also experimented with and applied to the machine learning models in order to see whether they yielded more accurate results.
-
+ \subsection{Feature Importance Using the Extra-Trees Classifier}
+ The Extra-Trees Classifier is an algorithm which builds multiple decision trees at random using some of the observations from the training data and the some of the features present in the dataset. This classifier can be used to measure the relative importance of each feature on the predicted variable. The use that the Extra-Trees Classifier provides is that it can produce a `score' for every feature in the dataset, where the higher the score implies the more the correlated that feature is with the predicted variable.
+ 
+The results obtained when selecting the most relevant features using the Extra-Trees classifier was extremely similar to the features obtained using the SelectKBest algorithm. For most players, the features which were highly correlated with points scored were the \textbf{number of games played}, the player's \textbf{game score} and the \textbf{points scored} from the previous game . However, due to the randomised nature of the extra trees classifier, on a few iterations of the algorithm, one of the highly correlated features for certain players consisted of the players plus-minus (+/-) from the previous game and the opponent they were currently playing. Examples of these are shown in the figures below. As a result, these features were also experimented with and applied to the machine learning models in order to see whether they yielded more accurate results.
 
 
 \begin{figure} [h!]
@@ -357,114 +483,35 @@ The results obtained when selecting the most relevant features using the Extra-T
 \caption{The bar charts show two different iterations of the extra-tree classifier for one player. When attempting to choose the 4 most correlated features, some features were selected in one iteration and not selected in another. As a result, the models were applied with both sets of features to see which one resulted in the lowest RMSE}
 \end{figure}
 
-After the relevent features had been selected, the machine learning models outlined in Chapter 1.6 were then trained and tested. The next chapter entails the results of this investigation:
+In summary, the most relevant features selected by the SelectKBest algorithm and the Extra-Trees classifier was: the game number, the points scored in the previous game, the player's GameScore from the previous game and the number of field goals attempted from the previous game. 
 
-\subsection{Machine Learning Models - Technical Background and Application} 
+\subsection{Motivation for the Machine Learning Models} 
 
 % MAYBE PUT ML ALGOS AFTER INTRODUCING THE DATA SET + FEATURES STUFF
-\subsection{Technical Background}
 %+ the theory of fitting models to dat aand avoiding overfitting and such!
-The following section outlines the theory of the machine learning models used in this project. In addition, the motivation and assumptions made when using these models will also be highlighted:
-
+The machine learning models were then trained using the features selected from Chapters 3.2 and 3.3. The motivations and assumptions of these models are discussed with regards to why they may be successful in achieving the aim of this project.
 
 \subsubsection{Simple Moving Average}
-The moving average model is commonly used in time series data. The simple average model essentially uses the previous $n$ data points to forecast future data points by taking the unweighted mean of these $n$ points:
-\begin{equation}
-\bar{p}_{SMA} = \frac{p_{M} + p_{M-1} + ... + p_{M-(N-1)}} {n} 
-= \frac{1}{n} \sum_{i=0}^{n-1}p_{M-i}
-\end{equation}
 
-\textcolor{red}{In regards to forecasting points scored by players, the Simple Moving Average assumes that the points scored in the previous $n$ games will be sufficient information when forecasting the points scored in the 2018/19 NBA Season. The Simple Average Model also assumes that a player will score the exact same number of points for every game of the upcoming season, which can be interpreted as a naive assumption.}
+The Simple Moving Average assumes that the points scored in the previous $n$ games will be sufficient information when forecasting the points scored in the 2018/19 NBA season. For example, if $n$ is chosen to be 20 games, and a player averages 15 points a game over the previous 20 games, the Simple Moving Average model will assume this player will score 15 points a game for every game in the upcoming season. This can be interpreted as a naive assumption for predicting the number of points for specific games because the number of points scored on a game by game basis varies greatly. However, the Simple Moving Average model may be more accurate at predicting the average number of points scored over the course of the whole season. This is because the model takes into account a players recent form, and assumes this recent form will be extrapolated for future games. On the other hand, this model also implies that the player's performances will plateau, suggesting that there will not be any increase or decrease in player points per game for the entire season. 
 
 
 \subsubsection{Simple Linear Regression}
-Ordinary Least Squares (OLS) or Linear Regression is a linear approach to modelling the relationship between an explanatory variable and the target variable.  Given explanatory variable \(x\) and target variable \(y\), the linear relationship is defined as follows:
-\begin{equation}
-y(x,w) = w_{0} + w_{1}x
-\end{equation}
-\textbf{w} (the weight vector) encodes the relationship between the two variables. Simple linear regression attempts to best fit a line to a set of data points by finding values for \textbf{w} which minimises the sum of the squares of the vertical offsets of the points from the line. Essentially the aim is to minimise the following function:
-\begin{equation}
-L(x) = \sum_{i=0}^{n}(y_{i}-\textbf{w}^Tx_{i})^2
-\end{equation}
-Where $\textbf{w}^Tx_{i}$ is a point on the line  and \(y_i\) is the data point that is vertical offset from  $\textbf{w}^Tx_{i}$. In order to minimise this function the partial derivative of $L$ is taken and the following derivative is equated to 0. As a result, the following equations encode the values of \(w_{0}\) and \(w_{1}\) which best fit the data points:
-\begin{equation}
-w_{1} =\frac{\sum{}^{} (x_{i} - \bar{x})(y_{i} - \bar{y})}{\sum{}^{}(x_{i} - \bar{x})^2}
-\end{equation}
-\begin{equation}
-w_{0} = \bar{y} - w_{1}\bar{x}
-\end{equation}
-where $\bar{y}$ and $\bar{x}$  are the means of the $y$ values and $x$ values.
 
-\textcolor{red}{Concerning this investigation, the target variable will be points scored per game and the explanatory variable will be the game number. Furthermore, Simple Linear Regression will produce a linear trend between the number of games played in the NBA and the points scored per game. As a result, when attempting to forecast the points scored games in the upcoming 2018/19 season, the model will work under the assumption that the points scored in every following game will follow a linear trajectory resembling the trajectory of the fitted line produced from training data (previous seasons). In other words, the points scored in every game will either continue to increase, decrease or the stay the same without any fluctuations throughout the season.}
+For this model the target variable will be points scored per game and the explanatory variable will be the game number. Furthermore, Simple Linear Regression will produce a linear trend between the number of games played in the NBA and the points scored per game. As a result, when attempting to forecast the points scored games in the upcoming 2018/19 season, the model will work under the assumption that the points scored in every following game will follow a linear trajectory resembling the trajectory of the fitted line produced from training data (previous seasons). In other words, the points scored in every game will either continue to increase, decrease or the stay the same without any fluctuations throughout the season. It can be argued that the Simple Linear Regression model better fits the training data compared to the Simple Moving Average model because it encodes the players trajectory and therefore assumes that players will continue to increase or decrease in performance for the upcoming season.
 
-
-\begin{figure} [h!]
-\captionsetup{justification=centering}
-\makebox[\linewidth][c]{%
-\begin{subfigure}[b]{.6\textwidth}
-\centering
-\includegraphics[width=0.95\textwidth]{scatterplt_ex.png}
-\caption{Data Points Plotted}
-\end{subfigure}%
-\begin{subfigure}[b]{.6\textwidth}
-\centering
-\includegraphics[width=0.95\textwidth]{linregscatterplt.png}
-\caption{Linear Relationship calculated}
-\end{subfigure}%
-}\\
-\caption{An example of Simple Linear Regression. The magenta line in Figure 1b) visualises the linear relationship between two variables. It can be seen that the two variables have a positive correlation}
-\end{figure}
 
 \subsubsection{Bayesian Linear Regression}
 % improve description of theory for Bayesian LS
-Bayesian Linear Regression also formulates a linear relationship between the explanatory and target variables, however unlike OLS the relationship is based off a probability distribution rather than point estimates. In other words, the target value is not estimated to be a single value but it is drawn from a specific probability distribution. For this investigation, the weights will be sampled from a Gaussian distribution when computing the target values. The reasoning behind this stems from the Central Limit Theorem. This model uses Bayes Theorem to produce probability distribution for the target values - called the posterior. A probability encoding an existing or prior belief of the weights (also called parameters) is multiplied by the likelihood of the data points. It is then divided by a normalisation constant. The prior belief will be a Gaussian distribution, and due to conjugacy, the posterior will also follow a Gaussian distribution. 
-\begin{equation}
- y \sim N(\textbf{w}^T\textbf{X}, \sigma^2\textbf{I})
-\end{equation}
-\begin{equation}
-P(\textbf{w}|y,\textbf{X}) = \frac{P(y|\textbf{X},\textbf{w})P(\textbf{w})}{P(y|\textbf{X})}
-\end{equation}
-One of the benefits of using Bayesian linear regression is that a prior belief about the model parameters can be specified, rather than assuming that all the information regarding the parameters is included within the data set. Another benefit of Bayesian linear regression is that uncertainty is included in our model due to the fact that the posterior is a probability distribution. If the dataset is small the posterior distribution of the parameters will be more spread out. Therefore it can be implied that the model is more uncertain in its belief of parameter values. As more data points are observed the posterior probability is `updated' and the model becomes more certain concerning its parameter values. If infinite data points were to be observed, the prior probability would essentially be washed out, and the best fitting line would converge to the OLS best fitting line.
+One of the benefits of using Bayesian linear regression is that a prior belief about the model parameters can be specified, rather than assuming that all the information regarding the parameters is included within the data set. Another benefit of Bayesian Linear Regression is that uncertainty is included in our model due to the fact that the posterior is a probability distribution. If the dataset is small the posterior distribution of the parameters will be more spread out. Therefore it can be implied that the model is more uncertain in its belief of parameter values. As more games are observed the posterior probability is `updated' and the model becomes more certain concerning its parameter values and as a result becomes more certain of the trajectory of the player's points per game for the 2018/19 season. If infinite data points were to be observed, the prior belief would essentially be washed out, and the best fitting line would converge to the OLS best fitting line.
 
-\textcolor{red}{The main motivation for including this model in this investigation is that a prior belief about the trajectory a particular player's upcoming season.}
+The main motivation for including this model in this investigation is that a prior belief about the trajectory a particular player's upcoming season. If there is a belief that a certain player will definitely perform better for this upcoming season this belief can be encoded into the model.
 
 \subsubsection{Kernel Ridge Regression}
 %TEMPORARY - GET RID OF THIS LATER
-Kernelised Ridge Regression is a nonlinear approach for modelling the relationship between an explanatory variable and a target variable. It combines Ridge Regression with the `kernel trick'.
 
-Ridge Regression is similar to Least Squares Regression where a curve is best fitted to a set of data points through minimising a loss function specified by Equation (2). However, the major risk when attempting to fit a curve to data is overfitting. One simple method for avoiding overfitting is to include penalty term to \textbf{w} in the loss function. Subsequently the loss function becomes, 
-\begin{equation}
-L = \sum_{i=0}^{n}y_{i} - \textbf{w}^Tx_{i} + \lambda||\textbf{w}||^2
-\end{equation}
-$\lambda$ is the regularisation parameter. If $\lambda$ were to be zero, then the loss function function would be the same as the loss function for least squares.
+Kernel Ridge Regression will produce a non-linear fit of the game played and the points scored. The motivation for using this model in this investigation is that the relationship between the number of games played and the number of points scored may not be linear and therefore a non-linear curve may produce a better fit compared to its linear counterpart. For example a players performances may have improved exponentially over the last 40 games of his career, and therefore the Kernel Ridge Regression model will assume that this trend will continue for the upcoming season. As a result it can be argued that this model will best fit the player's career, allowing for a more accurate forecast of points scored in future games.
 
-\begin{figure} [h!]
-\makebox[\linewidth][c]{%
-\begin{subfigure}[b]{.6\textwidth}
-\centering
-\includegraphics[width=0.95\textwidth]{scatterplt_ex.png}
-\caption{Data Points Plotted}
-\end{subfigure}%
-\begin{subfigure}[b]{.6\textwidth}
-\centering
-\includegraphics[width=0.95\textwidth]{linregscatterplt.png}
-\caption{Linear Relationship calculated}
-\end{subfigure}%
-}\\
-\caption{Different values of $\lambda$}
-\end{figure}
-
-
-In order to achieve a nonlinear curve a kernel function, $k(x,x')$ is applied to all input values. Kernel functions describe the inner product of two input values that are mapped to a different feature space $\mathcal{X} \rightarrow \mathcal{F}$: $k(x_{1},x_{2}) = \phi(x_{1})^T\phi(x_{2})$. The basis function $\phi(.)$ is unknown however it is not required as long as the mapped feature space is an inner product space; this is known as the kernel trick The idea behind using kernels is that when the inputs are mapped to a different feature space, they can be classified linearly as seen in Figure 3. Examples of kernel functions include the Radial Basis Function, the Polynomial Kernel and the  Fisher Kernel.
-
-      \begin{figure}[!htb]
-      \captionsetup{justification=centering}
-        \center{\includegraphics[width=0.6\textwidth]
-        {kerneltrick.png}}
-        \caption{\label{fig:my-label}By applying a basis function, the data points are mapped from a 1-dimensional feature space to a 2-dimensional feature space, where it can be linearly separated}
-      \end{figure}
-
-\textcolor{red}{The main motivation behind using Kernel Ridge Regression in this investigation is that the trajectory of a players performance over games played may not be linear. For example, a number of points scored by a player may have improved exponentially over last 20 games, and therefore applying a non-linear curve to this data may better fit the trajectory of his career. It can be inferred that this model will place more emphasis on recent form when attempting to forecast future results.}
 
 \begin{figure} [h!]
 \captionsetup{justification=centering}
@@ -491,41 +538,14 @@ In order to achieve a nonlinear curve a kernel function, $k(x,x')$ is applied to
 
 \subsubsection{Multiple Linear Regression and Multivariable Kernel Ridge Regression}
 
-Multiple Linear Regression models a relationship between more than one explanatory variable and a target variable by fitting a linear equation to the observed data:
-\begin{equation}
-y_{i} = w_{0} + w_{1}x_{i} + w_{2}x_{i} +  ... + w_{d}x_{i}
-\end{equation}
-A feature matrix consisting of the explanatory variables $\textbf{X}$ and a column vectors consisting of the target variable $y$ and weights $\textbf{w}$ can be represented as:
-\[
-\begin{bmatrix}
-	y_{1}\\
-	y_{2}\\
-	\vdots \\
-	y_{d} \\
-\end{bmatrix}
-= \begin{bmatrix}
-    x_{11} & x_{12} & x_{13} & \dots  & x_{1n} \\
-    x_{21} & x_{22} & x_{23} & \dots  & x_{2n} \\
-    \vdots & \vdots & \vdots & \ddots & \vdots \\
-    x_{d1} & x_{d2} & x_{d3} & \dots  & x_{dn}
-\end{bmatrix}
-\begin{bmatrix}
-	w_{1}\\
-	w_{2}\\
-	\vdots \\
-	w_{d} \\
-\end{bmatrix}
-\]
-In order to establish a linear relationship between $y$ and $\textbf{X}$ the weights are calculated using the least squares method akin to simple linear regression. Therefore the following loss function that needs to be minimised is $Xw -y^2$. The formula for finding the weights which minimises the loss function is
-\begin{equation}
-\textbf{w} = (\textbf{X}^T\textbf{X})^{-1}\textbf{X}^Ty
-\end{equation}
 \textcolor{red}{Within the context of this investigation, Multiple Linear Regression allows for different features other than just games played over time. For example, if a player is playing against a team who is less defensively adept compared to other teams, the player may score more points in that particular match compared to the other teams, or a player may have recently hit a good patch of form over the past few games, it is therefore logical to assume he will score more points in the next game. Using more features may allow for a more accurate prediction of player points per game. Multiple Linear Regression assumes that each explanatory variable is independent from another.}
+
+The motivation for using multi-variable regression models such as Multiple Linear Regression and Multi-variable Kernel Ridge Regression is that more than one feature can be used to aid in forecasting the target variable. The other models included in this investigation only use games played to describe points scored. These models will utilise other features which also aid in predicting the number of points scored such as the GameScore (GmSc) and the Field Goals Attempted (FGA) statistics. For example if a player's FGA has been increasing over the past few games, it could indicate that he is getting more opportunity to score more points, therefore these models can se this additional information and forecast that the number of points that this player will score in the upcoming game will also increase.
 
 Multivariable Kernel Ridge Regression is a simple extension of its single feature counterpart. Additionally, like Multiple linear regression there is or than one explanatory variable describing the target variable. 
 
 
-\subsubsection{Root Mean Squared Error}
+\subsection{Root Mean Squared Error}
 This investigation will use the Root Mean Squared Error (RMSE) quantify the error in each model. RMSE is that standard deviation between the values predicted by a machine learning model and the values observed.
 \begin{equation}
 RMSE = \sqrt[]{\frac{\sum_{i=0}^{n}(\hat{y}_{i} - y_{i})}{n}}
@@ -536,8 +556,9 @@ Additionally, the RMSE can be used to compare the efficacy between models. Model
 
 
 \newpage
-\section{Meta-Testing}
+\section{Parameter Tuning}
 
+\subsection{Choosing $n$ for the Simple Moving Average Model}
 
 \subsection{Picking the correct Regularisation parameter}
 
@@ -555,9 +576,9 @@ It can be seen in Figure 13 that there is a fall in the RMSE as the regularisati
 
 
 \subsection{Choosing Correct window for form}
-
-As stated earlier, when attempting to forecast the points scored from a game, one of the features was player form. In order to capture player form the points scored from a ?window? of games were included. However choosing the number of games to use in this window proved to be a challenging task. The method to combat was to vary the window size and see which window size would result in the lowest average RMSE. In other words, the number of games used to explain player performance were experimented with. The chart below depicts the average RMSE for the multivariable models when different sized windows were used. 
-
+% edit first sentence
+When undergoing feature selection, for player form, only the previous game's points scored was taken into account, however, in order to capture form more accurately, a window of previous $n$ games was experimented with. However choosing the number of games to use in this window proved to be a challenging task. The method to combat was to vary the window size and see which window size would result in the lowest average RMSE. In other words, the number of games used to explain player performance were experimented with. The chart below depicts the average RMSE for the multivariable models when different sized windows were used. 
+% add table for  games played below
 \vspace{5mm}
 \begin{table}[h!]
 \captionsetup{justification=centering}
@@ -712,7 +733,7 @@ Kernel ridge regression produced a lower RMSE compared to the other investigatio
 \subsection{Multivariable Linear Regression and Kernel Ridge Regression}
 Multivariable  linear regression produced a larger error value compared to its simple counterpart, however multivariable kernel regression produced extremely similar results to single feature kernel ridge regression. As stated in the previous section, the features selected were points scored from previous games, as well as the number of FGA attempts and the Game Score from the previous games.
 
-When looking at Table 4, we can see that the models varied in accuracy compared to one another. We can see that both simple Kernel Ridge Regression and Multivariable Kernel Ridge Regression were the most accurate for forecasting the points scored on a game by game basis - however, the difference in error values are small.
+When looking at Table 5, we can see that the models varied in accuracy compared to one another. We can see that both simple Kernel Ridge Regression and Multivariable Kernel Ridge Regression were the most accurate for forecasting the points scored on a game by game basis - however, the difference in error values are small.
 
 Single feature Kernel Ridge Regression produced the lowest error when forecasting the average points scored of players in the 2018/19 season regarding points scored.
 
@@ -777,6 +798,9 @@ As stated before, avoiding overfitting is key when attempting to forecast future
 
 \newpage
 \section{Conclusions and Future Work}
+The aim of this investigation, stated in Chapter 1.2, was to find out whether machine learning would aid in forecasting future player performances. More specifically, this investigation explored whether machine learning models could predict player points per game for every game over the course of the 2018/19 season and whether these models could also forecast the average points scored per game for this season. 
 
+With regards to predicting the exact number of points scored every game, the models all performed similarly, however the RMSE was relatively high in every model. Therefore, it can be concluded that these models are unable to accurately forecast  points scored in specific games accurately. Player performances in the NBA can vary by a lot on a game by game basis due to factors that cannot be captured using the features available such as player mentality and player tiredness.
 
+However, on the other hand the models performed better when attempting to forecasting averaging points per game for the season, the models performed better. As a result it can be concluded that the models explored in this investigation performed better when trying to achieve this aim. The results show that Kernel Ridge Regression was the model which produced the lowest error value - although the RMSE between each model was fairly close between all the models. It can be concluded that when attempting to accurately predict the average points scored for a player, a non-linear fit of points scored over games played for a players career is enough information to achieve this.
 \end{document}
