@@ -15,33 +15,35 @@
 \contentsline {subsubsection}{\numberline {2.3.3}Bayesian Linear Regression}{10}
 \contentsline {subsubsection}{\numberline {2.3.4}Kernel Ridge Regression}{10}
 \contentsline {subsubsection}{\numberline {2.3.5}Multiple Linear Regression and Multivariable Kernel Ridge Regression}{12}
-\contentsline {subsection}{\numberline {2.4}Existing Literature}{12}
-\contentsline {subsubsection}{\numberline {2.4.1}ARIMA model Time Series Player Data}{12}
-\contentsline {subsubsection}{\numberline {2.4.2}Weibull-Gamma Statistical Model}{13}
-\contentsline {section}{\numberline {3}Application to the NBA Dataset}{14}
-\contentsline {subsection}{\numberline {3.1}Feature Selection}{15}
+\contentsline {subsection}{\numberline {2.4}Root Mean Squared Error}{12}
+\contentsline {subsection}{\numberline {2.5}Existing Literature}{12}
+\contentsline {subsubsection}{\numberline {2.5.1}ARIMA model Time Series Player Data \cite {DeLay2016}}{12}
+\contentsline {subsubsection}{\numberline {2.5.2}Weibull-Gamma Statistical Model}{13}
+\contentsline {section}{\numberline {3}Application to the NBA Dataset}{15}
+\contentsline {subsection}{\numberline {3.1}Feature Selection}{16}
 \contentsline {subsection}{\numberline {3.2}SelectKBest Algorithm}{16}
-\contentsline {subsection}{\numberline {3.3}Feature Importance Using the Extra-Trees Classifier}{16}
-\contentsline {subsection}{\numberline {3.4}Motivation for the Machine Learning Models}{17}
-\contentsline {subsubsection}{\numberline {3.4.1}Motivation for the Simple Moving Average Model}{17}
-\contentsline {subsubsection}{\numberline {3.4.2}Motivation for Simple Linear Regression}{18}
-\contentsline {subsubsection}{\numberline {3.4.3}Motivation for Bayesian Linear Regression}{18}
-\contentsline {subsubsection}{\numberline {3.4.4}Motivation for Kernel Ridge Regression}{18}
-\contentsline {subsubsection}{\numberline {3.4.5}Motivation for Multiple Linear Regression and Multivariable Kernel Ridge Regression}{19}
-\contentsline {subsection}{\numberline {3.5}Root Mean Squared Error}{19}
-\contentsline {section}{\numberline {4}Results}{21}
-\contentsline {subsection}{\numberline {4.1}Simple Moving Average}{21}
-\contentsline {subsection}{\numberline {4.2}Simple and Bayesian Linear Regression}{23}
-\contentsline {subsection}{\numberline {4.3}Kernel Ridge Regression}{23}
-\contentsline {subsection}{\numberline {4.4}Multivariable Linear Regression and Kernel Ridge Regression}{23}
-\contentsline {subsection}{\numberline {4.5}Parameter Tuning}{24}
-\contentsline {subsubsection}{\numberline {4.5.1}Choosing $n$ for the Simple Moving Average Model}{24}
-\contentsline {subsubsection}{\numberline {4.5.2}Picking the correct Regularisation parameter}{24}
-\contentsline {subsubsection}{\numberline {4.5.3}Choosing Correct window for form}{25}
-\contentsline {subsection}{\numberline {4.6}Discussion and Analysis}{26}
-\contentsline {subsubsection}{\numberline {4.6.1}Game by Game and General Trend Analysis}{26}
-\contentsline {subsubsection}{\numberline {4.6.2}Comparing the Models}{27}
-\contentsline {subsubsection}{\numberline {4.6.3}Limitations in the Models}{27}
-\contentsline {subsubsection}{\numberline {4.6.4}Overfitting Problem}{27}
-\contentsline {section}{\numberline {5}Limitations}{28}
-\contentsline {section}{\numberline {6}Conclusions and Future Work}{29}
+\contentsline {subsection}{\numberline {3.3}Feature Importance Using the Extra-Trees Classifier}{17}
+\contentsline {subsection}{\numberline {3.4}Motivation for the Machine Learning Models}{18}
+\contentsline {subsubsection}{\numberline {3.4.1}Simple Moving Average Model}{18}
+\contentsline {subsubsection}{\numberline {3.4.2}Simple Linear Regression}{19}
+\contentsline {subsubsection}{\numberline {3.4.3}Bayesian Linear Regression}{19}
+\contentsline {subsubsection}{\numberline {3.4.4}Kernel Ridge Regression}{19}
+\contentsline {subsubsection}{\numberline {3.4.5}Multiple Linear Regression and Multivariable Kernel Ridge Regression}{20}
+\contentsline {section}{\numberline {4}Experiments and Results}{22}
+\contentsline {subsection}{\numberline {4.1}Parameter Tuning}{22}
+\contentsline {subsubsection}{\numberline {4.1.1}Choosing $n$ for the Simple Moving Average Model}{22}
+\contentsline {subsubsection}{\numberline {4.1.2}Picking the correct Regularisation parameter}{22}
+\contentsline {subsubsection}{\numberline {4.1.3}Choosing Correct window for form}{22}
+\contentsline {subsection}{\numberline {4.2}Results}{23}
+\contentsline {subsubsection}{\numberline {4.2.1}Simple Moving Average}{24}
+\contentsline {subsubsection}{\numberline {4.2.2}Simple and Bayesian Linear Regression}{24}
+\contentsline {subsubsection}{\numberline {4.2.3}Kernel Ridge Regression}{25}
+\contentsline {subsubsection}{\numberline {4.2.4}Multivariable Linear Regression and Kernel Ridge Regression}{26}
+\contentsline {subsection}{\numberline {4.3}Discussion and Analysis}{28}
+\contentsline {subsubsection}{\numberline {4.3.1}Forecasting Player Points Per Game for Every Game}{28}
+\contentsline {subsubsection}{\numberline {4.3.2}Forecasting Season Average Points Per Game}{28}
+\contentsline {subsubsection}{\numberline {4.3.3}Comparing the Models}{28}
+\contentsline {subsubsection}{\numberline {4.3.4}Limitations in the Models}{29}
+\contentsline {subsubsection}{\numberline {4.3.5}Overfitting Problem}{29}
+\contentsline {section}{\numberline {5}Limitations}{31}
+\contentsline {section}{\numberline {6}Conclusions and Future Work}{32}

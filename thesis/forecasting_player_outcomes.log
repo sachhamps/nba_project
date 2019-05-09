@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2019.3.16)  9 MAY 2019 12:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2019.3.16)  9 MAY 2019 20:05
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -608,6 +608,11 @@ Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
 (/usr/local/texlive/2017/texmf-dist/tex/latex/graphics/dvipsnam.def
 File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
 ))
+(/usr/local/texlive/2017/texmf-dist/tex/latex/cite/cite.sty
+LaTeX Info: Redefining \cite on input line 302.
+LaTeX Info: Redefining \nocite on input line 332.
+Package: cite 2015/02/27  v 5.5
+)
 (./forecasting_player_outcomes.aux
 
 LaTeX Warning: Label `fig:my-label' multiply defined.
@@ -616,23 +621,95 @@ LaTeX Warning: Label `fig:my-label' multiply defined.
 LaTeX Warning: Label `fig:my-label' multiply defined.
 
 
+LaTeX Warning: Label `fig:1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:1' multiply defined.
+
+
+LaTeX Warning: Label `fig:2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:2' multiply defined.
+
+
+LaTeX Warning: Label `fig:3' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:3' multiply defined.
+
+
+LaTeX Warning: Label `fig:1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:1' multiply defined.
+
+
+LaTeX Warning: Label `fig:2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:2' multiply defined.
+
+
+LaTeX Warning: Label `fig:3' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:3' multiply defined.
+
+
 LaTeX Warning: Label `fig:my-label' multiply defined.
+
+
+LaTeX Warning: Label `fig:1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:1' multiply defined.
+
+
+LaTeX Warning: Label `fig:2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:2' multiply defined.
+
+
+LaTeX Warning: Label `fig:1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:1' multiply defined.
+
+
+LaTeX Warning: Label `fig:2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:2' multiply defined.
+
+
+LaTeX Warning: Label `fig:1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:1' multiply defined.
+
+
+LaTeX Warning: Label `fig:2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:2' multiply defined.
 
 )
 \openout1 = `forecasting_player_outcomes.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -741,6 +818,9 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 3.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 
+LaTeX Warning: Citation `DeLay2016' on page 1 undefined on input line 20.
+
+
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
@@ -767,12 +847,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [3]
-LaTeX Font Info:    Try loading font information for OMS+aer on input line 79.
+LaTeX Font Info:    Try loading font information for OMS+aer on input line 80.
  (/usr/local/texlive/2017/texmf-dist/tex/latex/ae/omsaer.fd
 File: omsaer.fd 1999/12/27
 )
 LaTeX Font Info:    Font shape `OMS/aer/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 79.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 80.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -790,7 +870,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [5] <overfitpng.png, id=24, 989.6975pt x 706.64pt>
 File: overfitpng.png Graphic file (type png)
  <use overfitpng.png>
-Package pdftex.def Info: overfitpng.png used on input line 120.
+Package pdftex.def Info: overfitpng.png used on input line 122.
 (pdftex.def)             Requested size: 254.43878pt x 181.66261pt.
 
 
@@ -800,7 +880,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [6]
-Overfull \hbox (32.20369pt too wide) in paragraph at lines 141--156
+Overfull \hbox (32.20369pt too wide) in paragraph at lines 143--158
  [] 
  []
 
@@ -823,16 +903,16 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [8] <scatterplt_ex.png, id=37, 433.62pt x 289.08pt>
 File: scatterplt_ex.png Graphic file (type png)
  <use scatterplt_ex.png>
-Package pdftex.def Info: scatterplt_ex.png used on input line 264.
+Package pdftex.def Info: scatterplt_ex.png used on input line 266.
 (pdftex.def)             Requested size: 241.71606pt x 161.14705pt.
 
 <linregscatterplt.png, id=38, 433.62pt x 289.08pt>
 File: linregscatterplt.png Graphic file (type png)
  <use linregscatterplt.png>
-Package pdftex.def Info: linregscatterplt.png used on input line 264.
+Package pdftex.def Info: linregscatterplt.png used on input line 266.
 (pdftex.def)             Requested size: 241.71606pt x 161.14705pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 253--265
+Underfull \hbox (badness 10000) in paragraph at lines 255--267
 
  []
 
@@ -853,27 +933,29 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [10 <./scatterplt_ex.png> <./linregscatterplt.png>]
-File: scatterplt_ex.png Graphic file (type png)
- <use scatterplt_ex.png>
-Package pdftex.def Info: scatterplt_ex.png used on input line 299.
-(pdftex.def)             Requested size: 241.71606pt x 161.14705pt.
-File: linregscatterplt.png Graphic file (type png)
-
-<use linregscatterplt.png>
-Package pdftex.def Info: linregscatterplt.png used on input line 299.
+<../overfit.png, id=51, 433.62pt x 289.08pt>
+File: ../overfit.png Graphic file (type png)
+ <use ../overfit.png>
+Package pdftex.def Info: ../overfit.png used on input line 301.
 (pdftex.def)             Requested size: 241.71606pt x 161.14705pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 288--300
+<../betterfit.png, id=52, 433.62pt x 289.08pt>
+File: ../betterfit.png Graphic file (type png)
+ <use ../betterfit.png>
+Package pdftex.def Info: ../betterfit.png used on input line 301.
+(pdftex.def)             Requested size: 241.71606pt x 161.14705pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 290--302
 
  []
 
-<kerneltrick.png, id=51, 854.19125pt x 363.3575pt>
+<kerneltrick.png, id=53, 854.19125pt x 363.3575pt>
 File: kerneltrick.png Graphic file (type png)
  <use kerneltrick.png>
-Package pdftex.def Info: kerneltrick.png used on input line 309.
+Package pdftex.def Info: kerneltrick.png used on input line 311.
 (pdftex.def)             Requested size: 254.43878pt x 108.23187pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 4229) has occurred while \output is active []
 
 
 
@@ -882,7 +964,10 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[11 <./kerneltrick.png>]
+[11 <../overfit.png> <../betterfit.png> <./kerneltrick.png>]
+
+LaTeX Warning: Citation `DeLay2016' on page 12 undefined on input line 361.
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
@@ -896,11 +981,18 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[13] <../players/player24.png, id=63, 845.1575pt x 597.23125pt>
+[13]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[14] <../players/player24.png, id=70, 845.1575pt x 597.23125pt>
 File: ../players/player24.png Graphic file (type png)
 
 <use ../players/player24.png>
-Package pdftex.def Info: ../players/player24.png used on input line 387.
+Package pdftex.def Info: ../players/player24.png used on input line 401.
 (pdftex.def)             Requested size: 360.45386pt x 254.71754pt.
 
 
@@ -909,85 +1001,73 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[14 <../players/player24.png>] <../mp_pts.png, id=68, 433.62pt x 289.08pt>
+[15 <../players/player24.png>] <../mp_pts.png, id=75, 433.62pt x 289.08pt>
 File: ../mp_pts.png Graphic file (type png)
 
 <use ../mp_pts.png>
 Package pdftex.def Info: ../mp_pts.png used on input line 420.
-(pdftex.def)             Requested size: 181.28397pt x 120.85698pt.
- <../fga_pts.png, id=69, 433.62pt x 289.08pt>
+(pdftex.def)             Requested size: 199.30887pt x 132.87254pt.
+ <../fga_pts.png, id=76, 433.62pt x 289.08pt>
 File: ../fga_pts.png Graphic file (type png)
 
 <use ../fga_pts.png>
-Package pdftex.def Info: ../fga_pts.png used on input line 420.
-(pdftex.def)             Requested size: 181.28397pt x 120.85698pt.
- <../gmsc_pts.png, id=70, 433.62pt x 289.08pt>
+Package pdftex.def Info: ../fga_pts.png used on input line 426.
+(pdftex.def)             Requested size: 199.30887pt x 132.87254pt.
+ <../gmsc_pts.png, id=77, 433.62pt x 289.08pt>
 File: ../gmsc_pts.png Graphic file (type png)
 
 <use ../gmsc_pts.png>
-Package pdftex.def Info: ../gmsc_pts.png used on input line 420.
-(pdftex.def)             Requested size: 181.28397pt x 120.85698pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 404--421
-
- []
-
-<../opp.png, id=71, 433.62pt x 289.08pt>
+Package pdftex.def Info: ../gmsc_pts.png used on input line 431.
+(pdftex.def)             Requested size: 199.30887pt x 132.87254pt.
+ <../opp.png, id=78, 433.62pt x 289.08pt>
 File: ../opp.png Graphic file (type png)
- <use ../opp.png>
-Package pdftex.def Info: ../opp.png used on input line 442.
-(pdftex.def)             Requested size: 181.28397pt x 120.85698pt.
 
-<../pminus_pts.png, id=72, 433.62pt x 289.08pt>
+<use ../opp.png>
+Package pdftex.def Info: ../opp.png used on input line 436.
+(pdftex.def)             Requested size: 199.30887pt x 132.87254pt.
+ <../pminus_pts.png, id=79, 433.62pt x 289.08pt>
 File: ../pminus_pts.png Graphic file (type png)
- <use ../pminus_pts.png>
-Package pdftex.def Info: ../pminus_pts.png used on input line 442.
-(pdftex.def)             Requested size: 181.28397pt x 120.85698pt.
 
-<../fgoals_pts.png, id=73, 433.62pt x 289.08pt>
+<use ../pminus_pts.png>
+Package pdftex.def Info: ../pminus_pts.png used on input line 441.
+(pdftex.def)             Requested size: 199.30887pt x 132.87254pt.
+ <../fgoals_pts.png, id=80, 433.62pt x 289.08pt>
 File: ../fgoals_pts.png Graphic file (type png)
- <use ../fgoals_pts.png>
-Package pdftex.def Info: ../fgoals_pts.png used on input line 442.
-(pdftex.def)             Requested size: 181.28397pt x 120.85698pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 426--443
-
- []
+<use ../fgoals_pts.png>
+Package pdftex.def Info: ../fgoals_pts.png used on input line 446.
+(pdftex.def)             Requested size: 199.30887pt x 132.87254pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Underfull \vbox (badness 1478) has occurred while \output is active []
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
 
-
+[16]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[15 <../mp_pts.png> <../fga_pts.png> <../gmsc_pts.png>]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 13.59999pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[16 <../opp.png> <../pminus_pts.png> <../fgoals_pts.png>]
-<etc1.png, id=86, 414.54875pt x 254.9525pt>
+[17 <../mp_pts.png> <../fga_pts.png> <../gmsc_pts.png> <../opp.png> <../pminus_
+pts.png> <../fgoals_pts.png>] <etc1.png, id=93, 414.54875pt x 254.9525pt>
 File: etc1.png Graphic file (type png)
- <use etc1.png>
-Package pdftex.def Info: etc1.png used on input line 475.
-(pdftex.def)             Requested size: 198.25072pt x 121.92453pt.
 
-<etc2.png, id=87, 420.57124pt x 255.95625pt>
+<use etc1.png>
+Package pdftex.def Info: etc1.png used on input line 482.
+(pdftex.def)             Requested size: 198.25072pt x 121.92453pt.
+ <etc2.png, id=94, 420.57124pt x 255.95625pt>
 File: etc2.png Graphic file (type png)
  <use etc2.png>
-Package pdftex.def Info: etc2.png used on input line 475.
+Package pdftex.def Info: etc2.png used on input line 482.
 (pdftex.def)             Requested size: 198.25072pt x 120.65485pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 464--476
+Underfull \hbox (badness 10000) in paragraph at lines 471--483
 
  []
 
@@ -997,27 +1077,30 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[17 <./etc1.png> <./etc2.png>] <wavey.png, id=93, 433.62pt x 289.08pt>
-File: wavey.png Graphic file (type png)
+[18 <./etc1.png> <./etc2.png>]
 
-<use wavey.png>
-Package pdftex.def Info: wavey.png used on input line 528.
-(pdftex.def)             Requested size: 181.28397pt x 120.85698pt.
- <wavey_lr.png, id=94, 433.62pt x 289.08pt>
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[19] <wavey.png, id=104, 433.62pt x 289.08pt>
+File: wavey.png Graphic file (type png)
+ <use wavey.png>
+Package pdftex.def Info: wavey.png used on input line 518.
+(pdftex.def)             Requested size: 199.30887pt x 132.87254pt.
+
+<wavey_lr.png, id=105, 433.62pt x 289.08pt>
 File: wavey_lr.png Graphic file (type png)
  <use wavey_lr.png>
-Package pdftex.def Info: wavey_lr.png used on input line 528.
-(pdftex.def)             Requested size: 181.28397pt x 120.85698pt.
+Package pdftex.def Info: wavey_lr.png used on input line 524.
+(pdftex.def)             Requested size: 199.30887pt x 132.87254pt.
 
-<wavey_kr.png, id=95, 433.62pt x 289.08pt>
+<wavey_kr.png, id=106, 433.62pt x 289.08pt>
 File: wavey_kr.png Graphic file (type png)
  <use wavey_kr.png>
-Package pdftex.def Info: wavey_kr.png used on input line 528.
-(pdftex.def)             Requested size: 181.28397pt x 120.85698pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 511--529
-
- []
+Package pdftex.def Info: wavey_kr.png used on input line 529.
+(pdftex.def)             Requested size: 199.30887pt x 132.87254pt.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1025,126 +1108,17 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[18]
+[20 <./wavey.png> <./wavey_lr.png> <./wavey_kr.png>]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[19 <./wavey.png> <./wavey_lr.png> <./wavey_kr.png>]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 13.59999pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[20] <../players_sma/player3.png, id=109, 845.1575pt x 597.23125pt>
-File: ../players_sma/player3.png Graphic file (type png)
-
-<use ../players_sma/player3.png>
-Package pdftex.def Info: ../players_sma/player3.png used on input line 613.
-(pdftex.def)             Requested size: 275.63663pt x 194.78133pt.
-
-<../players_sma/player24.png, id=110, 845.1575pt x 597.23125pt>
-File: ../players_sma/player24.png Graphic file (type png)
-
-<use ../players_sma/player24.png>
-Package pdftex.def Info: ../players_sma/player24.png used on input line 619.
-(pdftex.def)             Requested size: 275.63663pt x 194.78133pt.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 13.59999pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[21]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 13.59999pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[22 <../players_sma/player3.png> <../players_sma/player24.png>]
-<../players_lr/player24.png, id=119, 845.1575pt x 597.23125pt>
-File: ../players_lr/player24.png Graphic file (type png)
-
-<use ../players_lr/player24.png>
-Package pdftex.def Info: ../players_lr/player24.png used on input line 644.
-(pdftex.def)             Requested size: 311.68387pt x 220.25217pt.
-
-Overfull \hbox (14.84294pt too wide) in paragraph at lines 644--644
- [][] 
- []
-
-<../players_lr/player26.png, id=120, 845.1575pt x 597.23125pt>
-File: ../players_lr/player26.png Graphic file (type png)
-
-<use ../players_lr/player26.png>
-Package pdftex.def Info: ../players_lr/player26.png used on input line 644.
-(pdftex.def)             Requested size: 311.68387pt x 220.25217pt.
-
-Overfull \hbox (14.84294pt too wide) in paragraph at lines 644--644
- [][] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 633--645
-
- []
-
-<../players_krr/player24.png, id=121, 845.1575pt x 597.23125pt>
-File: ../players_krr/player24.png Graphic file (type png)
-
-<use ../players_krr/player24.png>
-Package pdftex.def Info: ../players_krr/player24.png used on input line 668.
-(pdftex.def)             Requested size: 311.68387pt x 220.25217pt.
-
-Overfull \hbox (14.84294pt too wide) in paragraph at lines 668--668
- [][] 
- []
-
-<../players_krr/player2.png, id=122, 845.1575pt x 597.23125pt>
-File: ../players_krr/player2.png Graphic file (type png)
-
-<use ../players_krr/player2.png>
-Package pdftex.def Info: ../players_krr/player2.png used on input line 668.
-(pdftex.def)             Requested size: 311.68387pt x 220.25217pt.
-
-Overfull \hbox (14.84294pt too wide) in paragraph at lines 668--668
- [][] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 657--669
-
- []
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 13.59999pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[23 <../players_lr/player24.png> <../players_lr/player26.png>]
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 13.59999pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[24 <../players_krr/player24.png> <../players_krr/player2.png>]
-<../errvals.png, id=133, 845.1575pt x 597.23125pt>
+[21] <../errvals.png, id=116, 845.1575pt x 597.23125pt>
 File: ../errvals.png Graphic file (type png)
  <use ../errvals.png>
-Package pdftex.def Info: ../errvals.png used on input line 719.
+Package pdftex.def Info: ../errvals.png used on input line 588.
 (pdftex.def)             Requested size: 296.84093pt x 209.7631pt.
 
 
@@ -1153,25 +1127,44 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[25 <../errvals.png>]
+[22]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[26]
-Overfull \hbox (7.80122pt too wide) in paragraph at lines 808--809
- [] 
- []
+[23 <../errvals.png>]
+<../players_sma/player3.png, id=124, 845.1575pt x 597.23125pt>
+File: ../players_sma/player3.png Graphic file (type png)
+
+<use ../players_sma/player3.png>
+Package pdftex.def Info: ../players_sma/player3.png used on input line 691.
+(pdftex.def)             Requested size: 318.04524pt x 224.754pt.
+
+<../players_sma/player24.png, id=125, 845.1575pt x 597.23125pt>
+File: ../players_sma/player24.png Graphic file (type png)
+
+<use ../players_sma/player24.png>
+Package pdftex.def Info: ../players_sma/player24.png used on input line 697.
+(pdftex.def)             Requested size: 318.04524pt x 224.754pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
+<../players_lr/player24.png, id=126, 845.1575pt x 597.23125pt>
+File: ../players_lr/player24.png Graphic file (type png)
 
-Overfull \hbox (7.80122pt too wide) in paragraph at lines 835--836
- [] 
- []
+<use ../players_lr/player24.png>
+Package pdftex.def Info: ../players_lr/player24.png used on input line 711.
+(pdftex.def)             Requested size: 318.04524pt x 224.754pt.
+
+<../players_lr/player26.png, id=127, 845.1575pt x 597.23125pt>
+File: ../players_lr/player26.png Graphic file (type png)
+
+<use ../players_lr/player26.png>
+Package pdftex.def Info: ../players_lr/player26.png used on input line 717.
+(pdftex.def)             Requested size: 318.04524pt x 224.754pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -1182,7 +1175,44 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[27]
+[24] <../players_krr/player24.png, id=131, 845.1575pt x 597.23125pt>
+File: ../players_krr/player24.png Graphic file (type png)
+
+<use ../players_krr/player24.png>
+Package pdftex.def Info: ../players_krr/player24.png used on input line 734.
+(pdftex.def)             Requested size: 318.04524pt x 224.754pt.
+
+<../players_krr/player11.png, id=132, 845.1575pt x 597.23125pt>
+File: ../players_krr/player11.png Graphic file (type png)
+
+<use ../players_krr/player11.png>
+Package pdftex.def Info: ../players_krr/player11.png used on input line 740.
+(pdftex.def)             Requested size: 318.04524pt x 224.754pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[25 <../players_sma/player3.png> <../players_sma/player24.png>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[26 <../players_lr/player24.png> <../players_lr/player26.png>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[27 <../players_krr/player24.png> <../players_krr/player11.png>]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
@@ -1190,25 +1220,66 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [28]
+Overfull \hbox (7.80122pt too wide) in paragraph at lines 812--813
+ [] 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Overfull \hbox (7.80122pt too wide) in paragraph at lines 839--840
+ [] 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[29] (./forecasting_player_outcomes.aux)
+[29]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[30]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[31
+
+]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[32] (./forecasting_player_outcomes.aux)
+
+LaTeX Warning: There were undefined references.
+
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 6452 strings out of 492995
- 92158 string characters out of 6132704
- 280238 words of memory out of 5000000
- 9818 multiletter control sequences out of 15000+600000
- 35888 words of font info for 72 fonts, out of 8000000 for 9000
+ 6575 strings out of 492995
+ 93753 string characters out of 6132704
+ 281178 words of memory out of 5000000
+ 9928 multiletter control sequences out of 15000+600000
+ 40344 words of font info for 89 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,12n,44p,1359b,508s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,12n,44p,1359b,532s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
@@ -1219,10 +1290,10 @@ local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/loc
 al/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/loca
 l/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local
 /texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on forecasting_player_outcomes.pdf (29 pages, 545267 bytes).
+Output written on forecasting_player_outcomes.pdf (32 pages, 566695 bytes).
 PDF statistics:
- 184 PDF objects out of 1000 (max. 8388607)
- 96 compressed objects within 1 object stream
+ 199 PDF objects out of 1000 (max. 8388607)
+ 103 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 116 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 126 words of extra memory for PDF output out of 10000 (max. 10000000)
 
