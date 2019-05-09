@@ -341,6 +341,8 @@ In order to establish a linear relationship between $y$ and $\textbf{X}$ the wei
 \textbf{w} = (\textbf{X}^T\textbf{X})^{-1}\textbf{X}^Ty
 \end{equation}
 
+Multi-variable Kernel Ridge Regression can be see as an extension of its single feature counterpart, where instead of training a 1-dimensional vector as the explanatory variable, an $n$ dimensional vector consisting of many independent explanatory variables were trained.
+
 \subsection{Existing Literature}
  
 \subsubsection{ARIMA model Time Series Player Data}
@@ -376,24 +378,15 @@ A key difference between Hwang's thesis and the objective in this thesis is that
 \section{Application to the NBA Dataset}
 %change the word array to 20-dimensional vector
 
-Scatter plots depicting the points scored over games played were created in order to visualise the relationship between these two variables before they were trained by the machine learning models which only consist of one explanatory variable. Certain games were removed in order to avoid the data from being skewed. For example, if a player had played only a small number of minutes of a game due to unforeseen circumstances such as obtaining an injury, it was removed from the dataset. Figures 6a) and 6b) are the scatter plots for two players, Joel Embiid and Nikola Jokic. The Figures also show the Least Squares Regression plot of two of the players in the dataset. As visualised in these Figures the variance of points scored over a game-by-game basis is very large, thus potentially making the task of predicting the exact number of points scored by players in a particular game a very challenging task. However a general trend can be deduced from these graphs. There is a weakly positive correlation between number of games played and points, therefore it can hypothesised that for the upcoming season, this trend will continue. Some models in this investigation consist of one explanatory variable and a target variable, these include the Simple Moving Average model, Simple Linear Regression, Bayesian Linear Regression and Kernel Ridge Regression.
+Scatter plots depicting the points scored over games played were created in order to visualise the relationship between these two variables before they were trained by the machine learning models which only consist of one explanatory variable. Certain games were removed in order to avoid the data from being skewed. For example, if a player had played only a small number of minutes of a game due to unforeseen circumstances such as obtaining an injury, it was removed from the dataset. Figure 5a) is the scatter plot for a player, Nikola Jokic. The Figure also show the Least Squares Regression plot of the player in the dataset. As visualised in these Figures the variance of points scored over a game-by-game basis is very large, thus potentially making the task of predicting the exact number of points scored by players in a particular game a very challenging task. However a general trend can be deduced from these graphs. There is a weakly positive correlation between number of games played and points, therefore it can hypothesised that for the upcoming season, this trend will continue. Some models in this investigation consist of one explanatory variable and a target variable, these include the Simple Moving Average model, Simple Linear Regression, Bayesian Linear Regression and Kernel Ridge Regression.
 
-\begin{figure} [h!]
+
+      \begin{figure}[!htb]
       \captionsetup{justification=centering}
-\makebox[\linewidth][c]{%
-\begin{subfigure}[b]{.7\textwidth}
-\centering
-\includegraphics[width=1.05\textwidth]{../players/player24.png}
-\caption{Graph visualising Nikola Jokic's points scored}
-\end{subfigure}%
-\begin{subfigure}[b]{.7\textwidth}
-\centering
-\includegraphics[width=1.05\textwidth]{../players/player3.png}
-\caption{Graph visualising Aaron Gordon's points scored}
-\end{subfigure}%
-}\\
-\caption{The two Figures above visualise the relationship between the points scored of two players in the dataset over the course of their career's so far. The blue line shows the regression represents the linear relationship between the two variables and the shaded blue region represents one standard deviation.}
-\end{figure}
+        \center{\includegraphics[width=0.85\textwidth]
+        {../players/player24.png}}
+        \caption{\label{fig:my-label} The Figure above visualise the relationship between the points scored of a player in the dataset over the course of their career's so far. The blue line shows the regression represents the linear relationship between the two variables and the shaded blue region represents one standard deviation. }
+      \end{figure}
 
 The box scores were also collected for each player and the data was placed in an array for preprocessing.  Player form was also added to the array. It was decided that the points scored for the previous $n$ games would best resemble player form. Chapter 4.2 explains how the value of $n$ was chosen. Furthermore opponent difficulty was also added to the array using the defensive rating metric provided by the NBA. Every team in the NBA is given a defensive rating where the lower the rating implies the better the defence. These features were then subjected to features selection methods described in Chapters 3.2 and 3.3. A subset of the features which best describe the target variable were selected and trained on the machine learning models. In this investigation, there are two models which will use this subset of features: Multiple Linear Regression and Kernel Ridge Regression.
 
@@ -491,23 +484,23 @@ In summary, the most relevant features selected by the SelectKBest algorithm and
 %+ the theory of fitting models to dat aand avoiding overfitting and such!
 The machine learning models were then trained using the features selected from Chapters 3.2 and 3.3. The motivations and assumptions of these models are discussed with regards to why they may be successful in achieving the aim of this project.
 
-\subsubsection{Simple Moving Average}
+\subsubsection{Motivation for the Simple Moving Average Model}
 
 The Simple Moving Average assumes that the points scored in the previous $n$ games will be sufficient information when forecasting the points scored in the 2018/19 NBA season. For example, if $n$ is chosen to be 20 games, and a player averages 15 points a game over the previous 20 games, the Simple Moving Average model will assume this player will score 15 points a game for every game in the upcoming season. This can be interpreted as a naive assumption for predicting the number of points for specific games because the number of points scored on a game by game basis varies greatly. However, the Simple Moving Average model may be more accurate at predicting the average number of points scored over the course of the whole season. This is because the model takes into account a players recent form, and assumes this recent form will be extrapolated for future games. On the other hand, this model also implies that the player's performances will plateau, suggesting that there will not be any increase or decrease in player points per game for the entire season. 
 
 
-\subsubsection{Simple Linear Regression}
+\subsubsection{Motivation for Simple Linear Regression}
 
 For this model the target variable will be points scored per game and the explanatory variable will be the game number. Furthermore, Simple Linear Regression will produce a linear trend between the number of games played in the NBA and the points scored per game. As a result, when attempting to forecast the points scored games in the upcoming 2018/19 season, the model will work under the assumption that the points scored in every following game will follow a linear trajectory resembling the trajectory of the fitted line produced from training data (previous seasons). In other words, the points scored in every game will either continue to increase, decrease or the stay the same without any fluctuations throughout the season. It can be argued that the Simple Linear Regression model better fits the training data compared to the Simple Moving Average model because it encodes the players trajectory and therefore assumes that players will continue to increase or decrease in performance for the upcoming season.
 
 
-\subsubsection{Bayesian Linear Regression}
+\subsubsection{Motivation for Bayesian Linear Regression}
 % improve description of theory for Bayesian LS
 One of the benefits of using Bayesian linear regression is that a prior belief about the model parameters can be specified, rather than assuming that all the information regarding the parameters is included within the data set. Another benefit of Bayesian Linear Regression is that uncertainty is included in our model due to the fact that the posterior is a probability distribution. If the dataset is small the posterior distribution of the parameters will be more spread out. Therefore it can be implied that the model is more uncertain in its belief of parameter values. As more games are observed the posterior probability is `updated' and the model becomes more certain concerning its parameter values and as a result becomes more certain of the trajectory of the player's points per game for the 2018/19 season. If infinite data points were to be observed, the prior belief would essentially be washed out, and the best fitting line would converge to the OLS best fitting line.
 
 The main motivation for including this model in this investigation is that a prior belief about the trajectory a particular player's upcoming season. If there is a belief that a certain player will definitely perform better for this upcoming season this belief can be encoded into the model.
 
-\subsubsection{Kernel Ridge Regression}
+\subsubsection{Motivation for Kernel Ridge Regression}
 %TEMPORARY - GET RID OF THIS LATER
 
 Kernel Ridge Regression will produce a non-linear fit of the game played and the points scored. The motivation for using this model in this investigation is that the relationship between the number of games played and the number of points scored may not be linear and therefore a non-linear curve may produce a better fit compared to its linear counterpart. For example a players performances may have improved exponentially over the last 40 games of his career, and therefore the Kernel Ridge Regression model will assume that this trend will continue for the upcoming season. As a result it can be argued that this model will best fit the player's career, allowing for a more accurate forecast of points scored in future games.
@@ -536,11 +529,9 @@ Kernel Ridge Regression will produce a non-linear fit of the game played and the
 \caption{The relationship between the two variables are not linear, therefore, attempting to use a linear regression would result in a poor fit of the data observed in b). Kernel ridge regression produces a non-linear curve which better fits the relationship between the two variables, seen in c)}
 \end{figure}
 
-\subsubsection{Multiple Linear Regression and Multivariable Kernel Ridge Regression}
+\subsubsection{Motivation for Multiple Linear Regression and Multivariable Kernel Ridge Regression}
 
-\textcolor{red}{Within the context of this investigation, Multiple Linear Regression allows for different features other than just games played over time. For example, if a player is playing against a team who is less defensively adept compared to other teams, the player may score more points in that particular match compared to the other teams, or a player may have recently hit a good patch of form over the past few games, it is therefore logical to assume he will score more points in the next game. Using more features may allow for a more accurate prediction of player points per game. Multiple Linear Regression assumes that each explanatory variable is independent from another.}
-
-The motivation for using multi-variable regression models such as Multiple Linear Regression and Multi-variable Kernel Ridge Regression is that more than one feature can be used to aid in forecasting the target variable. The other models included in this investigation only use games played to describe points scored. These models will utilise other features which also aid in predicting the number of points scored such as the GameScore (GmSc) and the Field Goals Attempted (FGA) statistics. For example if a player's FGA has been increasing over the past few games, it could indicate that he is getting more opportunity to score more points, therefore these models can se this additional information and forecast that the number of points that this player will score in the upcoming game will also increase.
+The motivation for using multi-variable regression models such as Multiple Linear Regression and Multi-variable Kernel Ridge Regression is that more than one feature can be used to aid in forecasting the target variable. The other models included in this investigation only use games played to describe points scored. These models will utilise other features which also aid in predicting the number of points scored such as the GameScore (GmSc) and the Field Goals Attempted (FGA) statistics. For example if a player's FGA has been increasing over the past few games, it could indicate that he is getting more opportunity to score more points in those games, therefore these models can utilise this additional information and predict that the number of points that this player will score in the upcoming game will also increase. Using more features may allow for a more accurate prediction of player points per game. As stated at the end of Chapter 3.3, the features that proved to best explain the target were: the number of games played in the players career, GameScore, Field Goals Attempted and the number of points scored in the previous game.
 
 Multivariable Kernel Ridge Regression is a simple extension of its single feature counterpart. Additionally, like Multiple linear regression there is or than one explanatory variable describing the target variable. 
 
@@ -554,58 +545,6 @@ In order to check whether a model has over fit or underfit the data, the RMSE fr
 
 Additionally, the RMSE can be used to compare the efficacy between models. Models with a lower RMSE compared to others imply that they're better at forecasting the trajectory of player points per game compared to models which score a higher RMSE.
 
-
-\newpage
-\section{Parameter Tuning}
-
-\subsection{Choosing $n$ for the Simple Moving Average Model}
-
-\subsection{Picking the correct Regularisation parameter}
-
-For the kernelised methods, it was vital that the correct regularisation parameter was selected in order to prevent overfitting. When experimenting with different values, it was concluded that higher values of lambda resulted in an overfitting of the training data and thus resulted in a poor fit for the test data. However, on the other hand, if the regularisation parameter was too low, the models would under fit the training data and as a result the RMSE for the test data would be high. As a result the regularisation parameter was chosen by looping through different values, and choosing the value which resulted in the lowest RMSE for the training and testing data. The graph below show the testing data?s RMSE for single feature kernel regression and multi feature kernel regression with varying values of lambda. 
-
-      \begin{figure}[!htb]
-        \centerline{\includegraphics[width=0.7\textwidth]
-        {../errvals.png}}
-        \caption{\label{fig:my-label} The RMSE of the testing data for Kernel Ridge Regression with different regularisation values}
-      \end{figure}
-
-
-It can be seen in Figure 13 that there is a fall in the RMSE as the regularisation parameter increases, but as the regularisation parameter rises past a certain value, the RMSE begins to increase suggesting that the model has overfit the training data.
-
-
-
-\subsection{Choosing Correct window for form}
-% edit first sentence
-When undergoing feature selection, for player form, only the previous game's points scored was taken into account, however, in order to capture form more accurately, a window of previous $n$ games was experimented with. However choosing the number of games to use in this window proved to be a challenging task. The method to combat was to vary the window size and see which window size would result in the lowest average RMSE. In other words, the number of games used to explain player performance were experimented with. The chart below depicts the average RMSE for the multivariable models when different sized windows were used. 
-% add table for  games played below
-\vspace{5mm}
-\begin{table}[h!]
-\captionsetup{justification=centering}
-\begin{center}
-\begin{tabular}{ |c|c|} 
- \hline
-     \textbf{Model} & \textbf{Mean RMSE}\\ 
- \hline
- Simple Moving Average  & 3.80\\ 
- \hline
- Simple Linear Regression & 3.13\\ 
- \hline
- Bayesian Linear Regression  & 3.73 \\
- \hline
- Kernel Ridge Regression  & 2.86\\
- \hline
- Multiple Linear Regression& 3.13\\
- \hline
- Multivariable Kernel Ridge Regression  & 2.90\\
- \hline
-\end{tabular}
-\end{center}
-\caption{The different RMSE values when using different window sizes}
-\end{table}
-\vspace{5mm}
-
-This approach seemed the most logical as the previous number of games which resulted in the lowest average RMSE would mean that it is more accurate at forecasting the points scored for the next game.
 
 \newpage
 
@@ -667,21 +606,21 @@ Table 5 depicts the models RMSE for predicting for players season average points
 
 The simple moving average, arguably the most naive method used in this investigation, took  the mean of the last 'n' games and assumed that future points scored would be the average produced. Choosing the size of $n$ seemed to be a challenging task. In order to find the n which resulted in the lowest RMSE when predicting the points of every game in the 18/19 season, different values of n were experimented. The size of 'n' which resulted in the lowest RMSE was 20, suggesting that the previous 20 games were the most accurate when using this model to forecast future points scored per game. Example plots forecasting the points scored for the 2018/19 can be seen in Figure 10.
 
+
 \begin{figure}
-\captionsetup{justification=centering}
-\makebox[\linewidth][c]{%
-\begin{subfigure}[b]{.7\textwidth}
 \centering
-\includegraphics[width=1.05\textwidth]{../players_sma/player3.png}
-\caption{SMA results for Aaron Gordon}
-\end{subfigure}%
-\begin{subfigure}[b]{.7\textwidth}
-\centering
-\includegraphics[width=1.05\textwidth]{../players_sma/player24.png}
-\caption{SMA results for Nikola Jokic}
-\end{subfigure}%
-}\\
-\caption{These Figures show the results of the SMA model. The blue data points represents the training data points. The orange line depicts the prediction of the SMA model. The orange data points are the points actually scored by the players in the 18/19 season}
+  \begin{subfigure}[b]{0.65\textwidth}
+    \includegraphics[width=\textwidth]{../players_sma/player3.png}
+    \caption{SMA results for Aaron Gordon}
+    \label{fig:1}
+  \end{subfigure}
+  %
+  \begin{subfigure}[b]{0.65\textwidth}
+    \includegraphics[width=\textwidth]{../players_sma/player24.png}
+    \caption{SMA results for Nikola Jokic}
+    \label{fig:2}
+  \end{subfigure}
+  \caption{These Figures show the results of the SMA model. The blue data points represents the training data points. The orange line depicts the prediction of the SMA model. The orange data points are the points actually scored by the players in the 18/19 season}
 \end{figure}
 
 \subsection{Simple and Bayesian Linear Regression}
@@ -737,10 +676,90 @@ When looking at Table 5, we can see that the models varied in accuracy compared 
 
 Single feature Kernel Ridge Regression produced the lowest error when forecasting the average points scored of players in the 2018/19 season regarding points scored.
 
-\newpage
-\section{Discussion and Analysis}
+\subsection{Parameter Tuning}
 
-\subsection{Game by Game and General Trend Analysis}
+\subsubsection{Choosing $n$ for the Simple Moving Average Model}
+
+To find the value for $n$ which resulted in the lowest testing error different values were experimented with for each player. The $n$ which resulted in the lowest  testing error was 20 games. The testing errors for different $n$ is shown below.
+
+\vspace{5mm}
+\begin{table}[h!]
+\captionsetup{justification=centering}
+\begin{center}
+\begin{tabular}{ |c|c|} 
+ \hline
+     \textbf{Number of Games ($n$)} & \textbf{Mean Test RMSE}\\ 
+ \hline
+ 1  & 7.01\\ 
+ \hline
+ 2 & 6.96\\ 
+ \hline
+ 5  & 6.96 \\
+ \hline
+ 10  & 6.95\\
+ \hline
+ 20 & 6.90\\
+ \hline
+ 25  & 6.92\\
+ \hline
+30 & 6.96\\
+\hline
+\end{tabular}
+\end{center}
+\caption{The different RMSE values when using different number of $n$ for predicting the number of points for every game of the season. As the table shows, using a window of 20 games produces the lowest testing error.}
+\end{table}
+\vspace{5mm}
+
+\subsubsection{Picking the correct Regularisation parameter}
+
+For the kernelised methods, it was vital that the correct regularisation parameter was selected in order to prevent overfitting. When experimenting with different values, it was concluded that higher values of lambda resulted in an overfitting of the training data and thus resulted in a poor fit for the test data. However, on the other hand, if the regularisation parameter was too low, the models would under fit the training data and as a result the RMSE for the test data would be high. As a result the regularisation parameter was chosen by looping through different values, and choosing the value which resulted in the lowest RMSE for the training and testing data. The graph below show the testing data?s RMSE for single feature kernel regression and multi feature kernel regression with varying values of lambda. 
+
+      \begin{figure}[!htb]
+        \centerline{\includegraphics[width=0.7\textwidth]
+        {../errvals.png}}
+        \caption{\label{fig:my-label} The RMSE of the testing data for Kernel Ridge Regression with different regularisation values}
+      \end{figure}
+
+
+It can be seen in Figure 13 that there is a fall in the RMSE as the regularisation parameter increases, but as the regularisation parameter rises past a certain value, the RMSE begins to increase suggesting that the model has overfit the training data.
+
+
+
+\subsubsection{Choosing Correct window for form}
+% edit first sentence
+When undergoing feature selection, for player form, only the previous game's points scored was taken into account, however, in order to capture form more accurately, a window of previous $n$ games was experimented with. However choosing the number of games to use in this window proved to be a challenging task. The method to combat was to vary the window size and see which window size would result in the lowest average RMSE. In other words, the number of games used to explain player performance were experimented with. The chart below depicts the average RMSE for the multivariable models when different sized windows were used. 
+% add table for  games played below
+\vspace{5mm}
+\begin{table}[h!]
+\captionsetup{justification=centering}
+\begin{center}
+\begin{tabular}{ |c|c|} 
+ \hline
+     \textbf{Model} & \textbf{Mean RMSE}\\ 
+ \hline
+ Simple Moving Average  & 3.80\\ 
+ \hline
+ Simple Linear Regression & 3.13\\ 
+ \hline
+ Bayesian Linear Regression  & 3.73 \\
+ \hline
+ Kernel Ridge Regression  & 2.86\\
+ \hline
+ Multiple Linear Regression& 3.13\\
+ \hline
+ Multivariable Kernel Ridge Regression  & 2.90\\
+ \hline
+\end{tabular}
+\end{center}
+\caption{The different RMSE values when using different window sizes}
+\end{table}
+\vspace{5mm}
+
+This approach seemed the most logical as the previous number of games which resulted in the lowest average RMSE would mean that it is more accurate at forecasting the points scored for the next game.
+
+\subsection{Discussion and Analysis}
+
+\subsubsection{Game by Game and General Trend Analysis}
 Firstly, the average RMSE for each model ranges from 6.27 - 6.90 points per game for the players in the dataset. This implies that predicting the exact number of points scored in a game using these models is a challenging task. The number of points scored on a game by game basis can vary and fluctuate by a large amount, and these models were not able to capture these fluctuations. An example of that occurred this season was when Nikola Jokic scored a season high 40 points in the 42nd game of the season, but the models used in this investigation predicted he would only score between 20 to 23 points per game, which is within the range of points that Jokic had scored in the previous 3 games. 
 
 However, on the other hand, predicting the season average of points scored for the players resulted in a lower RMSE. Thus, it can be argued that the models performed better when attempting to decipher the average of the number of points scored by a player over a season compared to every individual game in a season. Therefore, these models achieved reasonable success when attempting to give foresight in overall future performance. This can be useful for NBA franchises when they are attempting to forecast a particular player?s average points scored for an upcoming season.
@@ -748,7 +767,7 @@ However, on the other hand, predicting the season average of points scored for t
 The results produced by the regression models for predicting the season average points scored were more accurate for some players compared to other players which suggests that the regression models fit the trajectory of a players career better than other other players. For example, the kernel regression model forecasted that Nikola Jokic would average 20.9 points per game which was close to the 20.1 points per game he achieved. On the other hand, this model predicted Joel Embiid would average 22.3 points per game based off of all of his career games, however he managed to achieve a season average of 27.5 points per game, 5.2 points greater than the prediction and a much larger average compared to his previous seasons. This example shows that these models are not able to anticipate large changes in player form for future seasons.
 
 
-\subsection{Comparing the Models}
+\subsubsection{Comparing the Models}
 When choosing the model which best fits the data, the results show that single feature kernel ridge regression produced the lowest RMSE when attempting to predict points scored for every game of the 18/19 NBA season as well forecasting the average points scored per game all players included in the dataset.
 
 These results suggest that the trend of player performance over the course of his career is not linear. The plots confirm this assumption and can be seen in Figure 12a) (Nikola Jokic) where this players points scored initially increases at a reasonable rate as the number of games played increases, however the rate of increase of points scored begins to plateau before the upcoming season. Therefore this model predicts that the number of points scored for the 2018/19 season will follow this trend.
@@ -759,13 +778,9 @@ When comparing the single feature models to the multivariable models, the result
 
 However, having stated the above, the RMSE for each model are extremely close between one another when predicting game by game results and season average results. All regression models performed similarly to one another, and it  can be argued that no model is significantly more accurate than one another.
 
+\subsubsection{Limitations in the Models}
 
-\subsection{Limitations}
-There were many limitations involved when attempting to predict the target variable. Firstly, capturing player form as a feature proved to be difficult. As explained before, this investigation used points scored from a specific number of previous games. However, this assumption made does not completely capture the tangible form of a player. For example, this assumption would not be able to foresee whether a player has an ?off-game? and doesn?t manage to score as many points as usual. Additionally, players often have a busy schedule and can get fatigued or tired when playing multiple games in a short amount of time and thus can affect the number of points scored in a game. This was not taken into account in this investigation. Also, although none of the players in the dataset did suffer from any long term injuries, if NBA franchises were to use these models to forecast player performance , it would not be able to forecast any injuries that players may get. 
-
-However, one factor that it is believe did in fact limit the results, is that certain players did change teams for the 2018/19 season. The reason this could affect the results is because the players role may change if he changes team. For example, if the player changes team which has better players compared to his former team, he may not play as much per game and as a result the number of points the player scored may decrease. Additionally, changing team also means changing teammates. As a result, teammate chemistry would have changed and this could have directly affected the point scored by the players. An example of this occurring in the dataset was Julius Randle, where he moved from the Los Angeles Lakers to the New Orleans Pelicans. Resultantly, Randle?s average points per game for the season increased dramatically from the previous season (16.1 points per game to 21.4). These models were not able to quantify the effect of a player changing teams and as a result would limit the results for players in this circumstance.
-
-\subsection{Overfitting Problem}
+\subsubsection{Overfitting Problem}
 As stated before, avoiding overfitting is key when attempting to forecast future outcomes when using machine learning models. The RMSE of the training data was compared to the test data.
 
 
@@ -792,9 +807,44 @@ As stated before, avoiding overfitting is key when attempting to forecast future
 \end{tabular}
 }
 \end{center}
-\caption{Comparing the RMSE of the training data and the testing data for every model}
+\caption{Comparing the RMSE of the training data and the testing data for every model when attempting to forecast the points scored for players for every game.}
 \end{table}
 \vspace{5mm}
+
+\begin{table}[h!]
+\captionsetup{justification=centering}
+\begin{center}
+\scalebox{0.8}{
+\begin{tabular}{ |c|c|c|} 
+ \hline
+ \textbf{Model} & \textbf{Mean RMSE of Training Data} &\textbf{Mean RMSE of Test Data}\\ 
+ \hline
+ Simple Moving Average & 2.76 &  3.80\\ 
+ \hline
+ Simple Linear Regression & 2.30 &  3.13\\ 
+ \hline
+ Bayesian Linear Regression& 2.47 & 3.73\\
+ \hline
+ Kernel Ridge Regression& 2.19 & 2.86\\
+ \hline
+ Multiple Linear Regression& 2.35 & 3.13\\
+ \hline
+ Multivariable Kernel Ridge Regression & 2.27 & 2.90\\
+ \hline
+\end{tabular}
+}
+\end{center}
+\caption{Comparing the RMSE of the training data and the testing data for every model when attempting to forecast the average points scored per game over the course of the season}
+\end{table}
+\vspace{5mm}
+
+\newpage
+
+\section{Limitations}
+There were many limitations involved when attempting to predict the target variable. Firstly, capturing player form as a feature proved to be difficult. As explained before, this investigation used points scored from a specific number of previous games. However, this assumption made does not completely capture the tangible form of a player. For example, this assumption would not be able to foresee whether a player has an `off-game' and doesn't manage to score as many points as usual. Additionally, players often have a busy schedule and can get fatigued or tired when playing multiple games in a short amount of time and thus can affect the number of points scored in a game. This was not taken into account in this investigation. Also, although none of the players in the dataset did suffer from any long term injuries, if NBA franchises were to use these models to forecast player performance , it would not be able to forecast any injuries that players may get. 
+
+However, one factor that it is believe did in fact limit the results, is that certain players did change teams for the 2018/19 season. The reason this could affect the results is because the players role may change if he changes team. For example, if the player changes team which has better players compared to his former team, he may not play as much per game and as a result the number of points the player scored may decrease. Additionally, changing team also means changing teammates. As a result, teammate chemistry would have changed and this could have directly affected the point scored by the players. An example of this occurring in the dataset was Julius Randle, where he moved from the Los Angeles Lakers to the New Orleans Pelicans. Resultantly, Randle's average points per game for the season increased dramatically from the previous season (16.1 points per game to 21.4). These models were not able to quantify the effect of a player changing teams and as a result would limit the results for players in this circumstance.
+
 
 \newpage
 \section{Conclusions and Future Work}

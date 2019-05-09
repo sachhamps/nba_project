@@ -23,24 +23,25 @@
 \contentsline {subsection}{\numberline {3.2}SelectKBest Algorithm}{16}
 \contentsline {subsection}{\numberline {3.3}Feature Importance Using the Extra-Trees Classifier}{16}
 \contentsline {subsection}{\numberline {3.4}Motivation for the Machine Learning Models}{17}
-\contentsline {subsubsection}{\numberline {3.4.1}Simple Moving Average}{17}
-\contentsline {subsubsection}{\numberline {3.4.2}Simple Linear Regression}{18}
-\contentsline {subsubsection}{\numberline {3.4.3}Bayesian Linear Regression}{18}
-\contentsline {subsubsection}{\numberline {3.4.4}Kernel Ridge Regression}{18}
-\contentsline {subsubsection}{\numberline {3.4.5}Multiple Linear Regression and Multivariable Kernel Ridge Regression}{19}
+\contentsline {subsubsection}{\numberline {3.4.1}Motivation for the Simple Moving Average Model}{17}
+\contentsline {subsubsection}{\numberline {3.4.2}Motivation for Simple Linear Regression}{18}
+\contentsline {subsubsection}{\numberline {3.4.3}Motivation for Bayesian Linear Regression}{18}
+\contentsline {subsubsection}{\numberline {3.4.4}Motivation for Kernel Ridge Regression}{18}
+\contentsline {subsubsection}{\numberline {3.4.5}Motivation for Multiple Linear Regression and Multivariable Kernel Ridge Regression}{19}
 \contentsline {subsection}{\numberline {3.5}Root Mean Squared Error}{19}
-\contentsline {section}{\numberline {4}Parameter Tuning}{21}
-\contentsline {subsection}{\numberline {4.1}Choosing $n$ for the Simple Moving Average Model}{21}
-\contentsline {subsection}{\numberline {4.2}Picking the correct Regularisation parameter}{21}
-\contentsline {subsection}{\numberline {4.3}Choosing Correct window for form}{21}
-\contentsline {section}{\numberline {5}Results}{23}
-\contentsline {subsection}{\numberline {5.1}Simple Moving Average}{23}
-\contentsline {subsection}{\numberline {5.2}Simple and Bayesian Linear Regression}{24}
-\contentsline {subsection}{\numberline {5.3}Kernel Ridge Regression}{24}
-\contentsline {subsection}{\numberline {5.4}Multivariable Linear Regression and Kernel Ridge Regression}{24}
-\contentsline {section}{\numberline {6}Discussion and Analysis}{27}
-\contentsline {subsection}{\numberline {6.1}Game by Game and General Trend Analysis}{27}
-\contentsline {subsection}{\numberline {6.2}Comparing the Models}{27}
-\contentsline {subsection}{\numberline {6.3}Limitations}{28}
-\contentsline {subsection}{\numberline {6.4}Overfitting Problem}{28}
-\contentsline {section}{\numberline {7}Conclusions and Future Work}{30}
+\contentsline {section}{\numberline {4}Results}{21}
+\contentsline {subsection}{\numberline {4.1}Simple Moving Average}{21}
+\contentsline {subsection}{\numberline {4.2}Simple and Bayesian Linear Regression}{23}
+\contentsline {subsection}{\numberline {4.3}Kernel Ridge Regression}{23}
+\contentsline {subsection}{\numberline {4.4}Multivariable Linear Regression and Kernel Ridge Regression}{23}
+\contentsline {subsection}{\numberline {4.5}Parameter Tuning}{24}
+\contentsline {subsubsection}{\numberline {4.5.1}Choosing $n$ for the Simple Moving Average Model}{24}
+\contentsline {subsubsection}{\numberline {4.5.2}Picking the correct Regularisation parameter}{24}
+\contentsline {subsubsection}{\numberline {4.5.3}Choosing Correct window for form}{25}
+\contentsline {subsection}{\numberline {4.6}Discussion and Analysis}{26}
+\contentsline {subsubsection}{\numberline {4.6.1}Game by Game and General Trend Analysis}{26}
+\contentsline {subsubsection}{\numberline {4.6.2}Comparing the Models}{27}
+\contentsline {subsubsection}{\numberline {4.6.3}Limitations in the Models}{27}
+\contentsline {subsubsection}{\numberline {4.6.4}Overfitting Problem}{27}
+\contentsline {section}{\numberline {5}Limitations}{28}
+\contentsline {section}{\numberline {6}Conclusions and Future Work}{29}

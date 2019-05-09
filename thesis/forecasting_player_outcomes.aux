@@ -33,7 +33,8 @@
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.4.1}ARIMA model Time Series Player Data}{12}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.4.2}Weibull-Gamma Statistical Model}{13}}
 \@writefile{toc}{\contentsline {section}{\numberline {3}Application to the NBA Dataset}{14}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces The two Figures above visualise the relationship between the points scored of two players in the dataset over the course of their career's so far. The blue line shows the regression represents the linear relationship between the two variables and the shaded blue region represents one standard deviation.\relax }}{14}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces  The Figure above visualise the relationship between the points scored of a player in the dataset over the course of their career's so far. The blue line shows the regression represents the linear relationship between the two variables and the shaded blue region represents one standard deviation. \relax }}{14}}
+\newlabel{fig:my-label}{{5}{14}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Feature Selection}{15}}
 \@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces The Figures above visualise the relationship between points scored in a game and specific stats from the prior game. This was done to see if there was a positive correlation between these features and the target variable. The Figures shown are taken from one player in the dataset \relax }}{15}}
 \@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces More features plotted to see if they are correlated to the number of points scored.\relax }}{16}}
@@ -41,34 +42,41 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Feature Importance Using the Extra-Trees Classifier}{16}}
 \@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces The bar charts show two different iterations of the extra-tree classifier for one player. When attempting to choose the 4 most correlated features, some features were selected in one iteration and not selected in another. As a result, the models were applied with both sets of features to see which one resulted in the lowest RMSE\relax }}{17}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Motivation for the Machine Learning Models}{17}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.1}Simple Moving Average}{17}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.2}Simple Linear Regression}{18}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.3}Bayesian Linear Regression}{18}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.4}Kernel Ridge Regression}{18}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.1}Motivation for the Simple Moving Average Model}{17}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.2}Motivation for Simple Linear Regression}{18}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.3}Motivation for Bayesian Linear Regression}{18}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.4}Motivation for Kernel Ridge Regression}{18}}
 \@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces The relationship between the two variables are not linear, therefore, attempting to use a linear regression would result in a poor fit of the data observed in b). Kernel ridge regression produces a non-linear curve which better fits the relationship between the two variables, seen in c)\relax }}{19}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.5}Multiple Linear Regression and Multivariable Kernel Ridge Regression}{19}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.5}Motivation for Multiple Linear Regression and Multivariable Kernel Ridge Regression}{19}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Root Mean Squared Error}{19}}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Parameter Tuning}{21}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Choosing $n$ for the Simple Moving Average Model}{21}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Picking the correct Regularisation parameter}{21}}
-\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces  The RMSE of the testing data for Kernel Ridge Regression with different regularisation values\relax }}{21}}
-\newlabel{fig:my-label}{{10}{21}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Choosing Correct window for form}{21}}
-\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces The different RMSE values when using different window sizes\relax }}{22}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Results}{23}}
-\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Results when attempting to forecast the points scored for every player on a game by game basis\relax }}{23}}
-\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Results when attempting to forecast season average points per game in the 18/19 season\relax }}{23}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Simple Moving Average}{23}}
-\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces These Figures show the results of the SMA model. The blue data points represents the training data points. The orange line depicts the prediction of the SMA model. The orange data points are the points actually scored by the players in the 18/19 season\relax }}{24}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Simple and Bayesian Linear Regression}{24}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Kernel Ridge Regression}{24}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Multivariable Linear Regression and Kernel Ridge Regression}{24}}
-\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces These Figures show the results of the simple linear regression model. The blue data points represents the training data points. The blue line depicts the best fitting line of the training data and the orange line is the predicted points scored for every game in the 2018/19 season. The orange data points are the points actually scored by the players in the 18/19 season\relax }}{25}}
-\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces The Figures show the training data points and the forecasted plots for Nikola Jokic and Joel Embiid.\relax }}{25}}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Discussion and Analysis}{27}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Game by Game and General Trend Analysis}{27}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Comparing the Models}{27}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Limitations}{28}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}Overfitting Problem}{28}}
-\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces Comparing the RMSE of the training data and the testing data for every model\relax }}{29}}
-\@writefile{toc}{\contentsline {section}{\numberline {7}Conclusions and Future Work}{30}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Results}{21}}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Results when attempting to forecast the points scored for every player on a game by game basis\relax }}{21}}
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Results when attempting to forecast season average points per game in the 18/19 season\relax }}{21}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Simple Moving Average}{21}}
+\newlabel{fig:1}{{10a}{22}}
+\newlabel{sub@fig:1}{{a}{22}}
+\newlabel{fig:2}{{10b}{22}}
+\newlabel{sub@fig:2}{{b}{22}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces These Figures show the results of the SMA model. The blue data points represents the training data points. The orange line depicts the prediction of the SMA model. The orange data points are the points actually scored by the players in the 18/19 season\relax }}{22}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Simple and Bayesian Linear Regression}{23}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces These Figures show the results of the simple linear regression model. The blue data points represents the training data points. The blue line depicts the best fitting line of the training data and the orange line is the predicted points scored for every game in the 2018/19 season. The orange data points are the points actually scored by the players in the 18/19 season\relax }}{23}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Kernel Ridge Regression}{23}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Multivariable Linear Regression and Kernel Ridge Regression}{23}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces The Figures show the training data points and the forecasted plots for Nikola Jokic and Joel Embiid.\relax }}{24}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Parameter Tuning}{24}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.1}Choosing $n$ for the Simple Moving Average Model}{24}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.2}Picking the correct Regularisation parameter}{24}}
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces The different RMSE values when using different number of $n$ for predicting the number of points for every game of the season. As the table shows, using a window of 20 games produces the lowest testing error.\relax }}{25}}
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces  The RMSE of the testing data for Kernel Ridge Regression with different regularisation values\relax }}{25}}
+\newlabel{fig:my-label}{{13}{25}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.3}Choosing Correct window for form}{25}}
+\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces The different RMSE values when using different window sizes\relax }}{26}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6}Discussion and Analysis}{26}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.6.1}Game by Game and General Trend Analysis}{26}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.6.2}Comparing the Models}{27}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.6.3}Limitations in the Models}{27}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.6.4}Overfitting Problem}{27}}
+\@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces Comparing the RMSE of the training data and the testing data for every model when attempting to forecast the points scored for players for every game.\relax }}{28}}
+\@writefile{lot}{\contentsline {table}{\numberline {9}{\ignorespaces Comparing the RMSE of the training data and the testing data for every model when attempting to forecast the average points scored per game over the course of the season\relax }}{28}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Limitations}{28}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Conclusions and Future Work}{29}}
